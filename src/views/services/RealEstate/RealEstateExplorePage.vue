@@ -126,7 +126,7 @@ const businesses = [
   }
 ];
 
-const isGridActiveLayout = ref(true);
+const isGridActiveLayout = ref(false);
 
 const toggleLayout = () => {
   isGridActiveLayout.value = !isGridActiveLayout.value;
@@ -142,7 +142,7 @@ const toggleLayout = () => {
       <div><input placeholder="ex. search contractor" class="p-2 px-4 bg-transparent border-black border rounded-lg" />
       </div>
       <div class="flex-grow flex justify-end gap-5">
-        <div @click="toggleLayout" class="center cursor-pointer rounded-full md:p-3"
+        <div @click="toggleLayout" class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
           :class="isGridActiveLayout ? 'bg-teal-400' : ''">
           <svg width="20" height="20" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -150,7 +150,7 @@ const toggleLayout = () => {
               stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <div @click="toggleLayout" class="center cursor-pointer rounded-full md:p-3"
+        <div @click="toggleLayout" class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
           :class="isGridActiveLayout ? '' : 'bg-teal-400'"><svg width="20" height="20" viewBox="0 0 25 25" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
