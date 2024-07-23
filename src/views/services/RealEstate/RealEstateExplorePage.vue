@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import ContractorCard from '@/components/Business/RealEstate/ContractorCardView.vue';
 import ContractorListView from "@/components/Business/RealEstate/ContractorListView.vue";
+import CategoryTag from "@/components/CategoryTag.vue";
 
 const businesses = [
   {
@@ -132,9 +133,25 @@ const toggleLayout = () => {
   isGridActiveLayout.value = !isGridActiveLayout.value;
   console.log(isGridActiveLayout.value)
 }
+
+const list = ref([
+  { name: "All" },
+  { name: "General Contractor" },
+  { name: "Electrical Contractor" },
+  { name: "Fire Alarm Sprinkler " },
+  { name: "Floor & Sparking" },
+  { name: "Finisjh Carpentery" },
+  { name: "Glass & Window" },
+  { name: "Home Garden" },
+  { name: "Jobs" },
+  { name: "Accomedation" },
+])
 </script>
 <template>
   <section class="px-3 md:px-10">
+    <section class="my-5">
+      <CategoryTag :list="list" />
+    </section>
     <section class="flex justify-start gap-10 my-4">
       <div class="center">
         <h3 class="font-bold text-lg">All Contractors</h3>
@@ -142,7 +159,8 @@ const toggleLayout = () => {
       <div><input placeholder="ex. search contractor" class="p-2 px-4 bg-transparent border-black border rounded-lg" />
       </div>
       <div class="flex-grow flex justify-end gap-5">
-        <div @click="toggleLayout" class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
+        <div @click="toggleLayout"
+          class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
           :class="isGridActiveLayout ? 'bg-teal-400' : ''">
           <svg width="20" height="20" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -150,7 +168,8 @@ const toggleLayout = () => {
               stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <div @click="toggleLayout" class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
+        <div @click="toggleLayout"
+          class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
           :class="isGridActiveLayout ? '' : 'bg-teal-400'"><svg width="20" height="20" viewBox="0 0 25 25" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path

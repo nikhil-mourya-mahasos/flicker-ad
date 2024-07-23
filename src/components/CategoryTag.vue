@@ -5,7 +5,6 @@ export default {
   props: {
     list: {
       default: [],
-      type: Array,
     },
   },
   data() {
@@ -104,7 +103,7 @@ export default {
         class="p-1 px-4 border border-black rounded-full cursor-pointer"
       >
         <div class="center">
-          <h4 class="">{{ item?.name }}</h4>
+          <h4 class="whitespace-nowrap">{{ item?.name }}</h4>
         </div>
       </div>
     </div>
