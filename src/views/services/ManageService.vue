@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      activeComponent: "LawyerExplorePage"
+      activeComponent: ""
     }
   },
   created() {
@@ -27,6 +27,9 @@ export default {
       case "realEstate": {
         this.activeComponent = "RealEstateExplorePage";
         break;
+      }
+      default :{
+        this.$router.go(-1)
       }
     }
   },
