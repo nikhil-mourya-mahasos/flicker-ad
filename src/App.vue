@@ -1,7 +1,7 @@
 <template>
   <section class="w-full overflow-hidden">
     <HeaderLayout />
-    <div class="xxs:pt-[50px] md:pt-[70px] bg-default">
+    <div class="xxs:pt-[50px] md:pt-[70px] bg-default pb-10">
       <router-view v-slot="{ Component }"
         ><Transition name="slide-fade"> <component :is="Component" /> </Transition
       ></router-view>

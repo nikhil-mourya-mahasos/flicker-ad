@@ -15,6 +15,7 @@ import AddPost from "@/views/ads/AddPost.vue";
 import RegisterPage from "@/views/services/RegisterPage.vue"
 import ManageService from "@/views/services/ManageService.vue";
 import LawyerProfile from "@/views/services/lawyer/LawyerProfile.vue";
+import RealEstateProfile from "@/views/services/RealEstate/RealEstateProfile.vue";
 
 const routes = [
   {
@@ -110,6 +111,10 @@ const routes = [
       {
         path: 'lawyer/profile/:id',
         component:LawyerProfile
+      },
+      {
+        path: 'realEstate/profile/:id',
+        component:RealEstateProfile
       },
     ]
   },
