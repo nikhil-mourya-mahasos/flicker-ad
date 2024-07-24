@@ -16,6 +16,7 @@ import RegisterPage from "@/views/services/RegisterPage.vue"
 import ManageService from "@/views/services/ManageService.vue";
 import LawyerProfile from "@/views/services/lawyer/LawyerProfile.vue";
 import RealEstateProfile from "@/views/services/RealEstate/RealEstateProfile.vue";
+import TrainerProfile from "@/views/services/Trainer/TrainerProfile.vue";
 
 const routes = [
   {
@@ -115,6 +116,10 @@ const routes = [
       {
         path: 'realEstate/profile/:id',
         component:RealEstateProfile
+      },
+      {
+        path: 'trainer/profile/:id',
+        component:TrainerProfile
       },
     ]
   },
