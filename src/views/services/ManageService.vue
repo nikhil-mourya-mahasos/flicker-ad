@@ -1,30 +1,37 @@
 <template>
   <section class="w-full lg:p-10 md:p-6 p-5">
-    {{ activeComponent }}
-    <!-- <component :is="activeComponent"></component> -->
-    <!-- <LawyerExplorePage /> -->
-    <RealEstateExplorePage />
+    <component :is="activeComponent"></component>
   </section>
 </template>
-<script setup>
-import { onMounted, ref } from "vue";
-// import LawyerExplorePage from "./lawyer/LawyerExplorePage.vue";
+<script>
+import LawyerExplorePage from "./lawyer/LawyerExplorePage.vue";
 import RealEstateExplorePage from "./RealEstate/RealEstateExplorePage.vue";
-// import router from "@/router";
-import { useRoute } from "vue-router";
-const route = useRoute();
-let activeComponent = "";
 
-const params = ref("");
-onMounted(() => {
-  params.value = route.params.id;
-  console.log(route.params.id);
-  switch (params.value) {
-    case "lawyer": {
-      activeComponent = "LawyerExplorePage";
-      console.log("lawyer");
-      break;
+export default {
+  name: "ManageService",
+  components: {
+    LawyerExplorePage,
+    RealEstateExplorePage
+  },
+  data() {
+    return {
+      activeComponent: "LawyerExplorePage"
     }
-  }
-});
+  },
+  created() {
+    switch (this.$route.params.id) {
+      case "lawyer": {
+        this.activeComponent = "LawyerExplorePage";
+        break;
+      }
+      case "realEstate": {
+        this.activeComponent = "RealEstateExplorePage";
+        break;
+      }
+    }
+  },
+  // mounted() {
+
+  // }
+}
 </script>
