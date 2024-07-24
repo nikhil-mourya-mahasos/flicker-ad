@@ -1,22 +1,36 @@
 <script setup>
+import { ref } from "vue";
 // import DynamicInput from "@/components/DynamicInput.vue";
 import PicturesCollage from "@/components/PicturesCollage.vue"
+import JoinCourseCard from "@/components/Business/Trainer/JoinCourseCard.vue";
+import CourseFeeCard from "@/components/Business/Trainer/CourseFeeCard.vue";
+import ReviewCard from "@/components/Business/Trainer/ReviewCard.vue";
+import TrainerCard from "@/components/Business/Trainer/TrainerCard.vue";
 
-const imgList= [
-        "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg",
-        "https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg",
-        "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg",
-        "https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg",
-        "https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg",
-        "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg",
-        "https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg",
-      ]
+
+
+const imgList = [
+  "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg",
+  "https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg",
+  "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg",
+  "https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg",
+  "https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg",
+  "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg",
+  "https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg",
+]
+
+const tabs = ["About Us", "Trainer/Tutors", "Courses & Fee", "Reviews"];
+let activeTabIndex = ref(0);
+
+const toggleTab = (index) => {
+  activeTabIndex.value = index;
+}
 </script>
 <template>
   <section class="mx-14 m-5 mb-10 p-5 rounded-lg bg">
     <section class="grid grid-cols-7 gap-4">
       <div class="col-span-4">
-        <PicturesCollage :img-list="imgList"/>
+        <PicturesCollage :img-list="imgList" />
       </div>
       <div class="col-span-3">
         <div>
@@ -177,22 +191,37 @@ const imgList= [
     </section>
     <section class="grid grid-cols-9 gap-4 my-3">
       <div class="col-span-5 text-left">
-        
+        <section>
+          <div
+            class="text-sm text-center text-black font-bold border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px">
+              <li class="me-2" v-for="item, index in tabs" :key="index">
+                <span @click="toggleTab(index)"
+                  :class="activeTabIndex === index ? 'text-teal-400 border-teal-400 border-b-2' : 'text-black'"
+                  class="inline-block p-2 cursor-pointer  rounded-t-lg  hover:border-teal-400 ">{{ item }}</span>
+              </li>
+              <!-- <li class="me-2">
+                <a href="#"
+                  class="inline-block p-4  border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500"
+                  aria-current="page">Dashboard</a>
+              </li> -->
+              <!-- <li>
+                <a
+                  class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
+              </li> -->
+            </ul>
+          </div>
+
+        </section>
+        <section>
+          <TrainerCard />
+          <CourseFeeCard />
+          <ReviewCard />
+        </section>
       </div>
       <div class="col-span-4">
-        <div class="flex mt-4 flex-row flex-wrap gap-4 text-sm p-4 border rounded-lg">
-          <div class="flex justify-start gap-2 items-center" v-for="item in 5" :key="item">
-            <div class="center"><svg width="20" height="17" viewBox="0 0 20 17" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M6.99906 16.42L0.789062 10.21L3.61906 7.38L6.99906 10.77L16.8791 0.880005L19.7091 3.71L6.99906 16.42Z"
-                  fill="black" />
-              </svg>
-
-            </div>
-            <p class=" whitespace-nowrap text-black">Accessory Buildings {{ item }}</p>
-          </div>
-        </div>
+        <JoinCourseCard :title="'Spring Boot Full Stack Course Online Starting Soon'" :fees="'2344'" :duration="'2'"
+          :img="'https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg'" />
       </div>
     </section>
   </section>
