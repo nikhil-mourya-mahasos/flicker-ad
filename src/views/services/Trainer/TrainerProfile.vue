@@ -6,6 +6,7 @@ import JoinCourseCard from "@/components/Business/Trainer/JoinCourseCard.vue";
 import CourseFeeCard from "@/components/Business/Trainer/CourseFeeCard.vue";
 import ReviewCard from "@/components/Business/Trainer/ReviewCard.vue";
 import TrainerCard from "@/components/Business/Trainer/TrainerCard.vue";
+import AboutUs from "@/components/Business/Trainer/AboutUs.vue";
 
 
 
@@ -20,7 +21,7 @@ const imgList = [
 ]
 
 const tabs = ["About Us", "Trainer/Tutors", "Courses & Fee", "Reviews"];
-let activeTabIndex = ref(0);
+let activeTabIndex = ref(2);
 
 const toggleTab = (index) => {
   activeTabIndex.value = index;
@@ -213,10 +214,13 @@ const toggleTab = (index) => {
           </div>
 
         </section>
-        <section>
-          <TrainerCard />
-          <CourseFeeCard />
-          <ReviewCard />
+        <section class="mt-3" >
+          <div v-if="activeTabIndex==1" class="grid grid-cols-2 gap-3">
+            <TrainerCard v-for="item in 5" :key="item" :full-name="'John Doe'"  :img="'https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg'" />
+          </div>
+          <AboutUs v-if="activeTabIndex==0"/>
+          <CourseFeeCard v-if="activeTabIndex==2" />
+          <ReviewCard v-if="activeTabIndex==3" />
         </section>
       </div>
       <div class="col-span-4">
