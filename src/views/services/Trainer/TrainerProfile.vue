@@ -30,12 +30,12 @@ const toggleTab = (index) => {
 }
 </script>
 <template>
-  <section class="mx-14 m-5 mb-10 p-5 rounded-lg bg">
-    <section class="grid grid-cols-7 gap-4">
-      <div class="col-span-4">
+  <section class="lg:mx-14 md:mx-8 m-5 mb-10 p-5 rounded-lg bg">
+    <section class="grid md:grid-cols-7 gap-4">
+      <div class="md:col-span-4">
         <PicturesCollage :img-list="imgList" />
       </div>
-      <div class="col-span-3">
+      <div class="md:col-span-3">
         <div>
           <div class="text-left">
             <h2 class="text-md font-semibold">Peak Builder & Roofers of San Diego</h2>
@@ -139,38 +139,33 @@ const toggleTab = (index) => {
 
       </div>
     </section>
-    <section class="grid grid-cols-9 gap-4 my-3">
+    <section class="flex flex-col-reverse md:grid md:grid-cols-9 gap-4 my-3">
       <div class="col-span-5 text-left">
         <section>
           <div
             class="text-sm text-center text-black font-bold border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
             <ul class="flex flex-wrap -mb-px">
-              <li class="me-2" v-for="item, index in tabs" :key="index">
+              <li class="m-1 md:me-2" v-for="item, index in tabs" :key="index">
                 <span @click="toggleTab(index)"
                   :class="activeTabIndex === index ? 'text-teal-400 border-teal-400 border-b-2' : 'text-black'"
-                  class="inline-block p-2 cursor-pointer  rounded-t-lg  hover:border-teal-400 ">{{ item }}</span>
+                  class="text-xs md:text-base inline-block p-1 md:p-2 cursor-pointer  rounded-t-lg  hover:border-teal-400 ">{{
+                  item }}</span>
               </li>
-              <!-- <li class="me-2">
-                <a href="#"
-                  class="inline-block p-4  border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500"
-                  aria-current="page">Dashboard</a>
-              </li> -->
-              <!-- <li>
-                <a
-                  class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
-              </li> -->
             </ul>
           </div>
 
         </section>
         <section class="mt-3">
-          <div v-if="activeTabIndex == 1" class="grid grid-cols-2 gap-3">
+          <div v-if="activeTabIndex == 1" class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <TrainerCard v-for="item in 5" :key="item" :full-name="'John Doe'"
               :img="'https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg'" />
           </div>
           <AboutUs v-if="activeTabIndex == 0" />
           <CourseFeeCard v-if="activeTabIndex == 2" />
-          <ReviewCard v-if="activeTabIndex == 3" />
+          <div v-if="activeTabIndex == 3" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <ReviewCard v-for="item in 5" :key="item" :full-name="'John Doe'"
+              :img="'https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg'" />
+          </div>
         </section>
       </div>
       <div class="col-span-4">

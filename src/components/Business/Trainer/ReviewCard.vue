@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-100 p-3 shadow-sm">
-        <div class="flex justify-start gap-10">
+        <div class="md:flex justify-start gap-10">
             <div class="">
                 <img class="rounded-full h-16 w-16 border-2 border-gray-300"
                     src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" />
@@ -19,9 +19,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="my-3"><p class="text-sm">I love these so much! feels like great quality & still very baggy if you size down!</p></div>
+                <div class="my-3"><p class="text-sm text-left">I love these so much! feels like great quality & still very baggy if you size down!</p></div>
                 <div class="text-right mt-3 text-black font-bold"><h2>Reply From Business</h2></div>
-                <div class="my-1 text-right text-black"><p class="text-sm">I love these so much! feels like great quality & still very baggy if you size down!</p></div>
+                <div class="my-1 text-right text-black"><p class="md:text-sm text-xs">I love these so much! feels like great quality & still very baggy if you size down!</p></div>
 
             </div>
         </div>
