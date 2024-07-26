@@ -114,13 +114,13 @@ const lawyerCards = [
     <section class="md:col-span-3 col-span-4 overflow-hidden">
       <CategoryTag :list="list" />
     </section>
-    <section class="flex justify-start gap-10 my-4">
+    <section class="flex justify-start gap-2 md:gap-10 my-4">
       <div class="center">
-        <h3 class="font-bold text-lg">Corporate Law</h3>
+        <h3 class="font-bold md:text-lg text-xs">Corporate Law</h3>
       </div>
-      <div><input class="p-2 px-4 bg-transparent border-black border rounded-lg" /></div>
+      <div><input class="p-1 px-2 md:p-2 md:px-4 bg-transparent border-black border rounded-lg" /></div>
     </section>
-    <section class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5">
+    <section class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
       <LawyerCard v-for="(item, index) in lawyerCards" :key="index" :name="item.name" :address="item.address" />
     </section>
   </section>

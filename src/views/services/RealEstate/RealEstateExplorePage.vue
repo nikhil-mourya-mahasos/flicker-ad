@@ -154,11 +154,12 @@ const list = ref([
     </section>
     <section class="flex justify-start gap-10 my-4">
       <div class="center">
-        <h3 class="font-bold text-lg">All Contractors</h3>
+        <h3 class="font-bold md:text-lg text-xs">All Contractors</h3>
       </div>
-      <div><input placeholder="ex. search contractor" class="p-2 px-4 bg-transparent border-black border rounded-lg" />
+      <div class="p-1 hidden md:block"><input placeholder="ex. search contractor"
+          class="p-1 px-2 md:p-2 md:px-4 bg-transparent border-black border rounded-lg" />
       </div>
-      <div class="flex-grow flex justify-end gap-5">
+      <div class="flex-grow md:flex justify-end gap-5 hidden">
         <div @click="toggleLayout"
           class="center cursor-pointer rounded-full md:p-3 hover:scale-105 transition-all duration-150"
           :class="isGridActiveLayout ? 'bg-teal-400' : ''">
@@ -197,6 +198,23 @@ const list = ref([
             <option value="DE">Germany</option>
           </select>
         </form>
+      </div>
+      <div class="md:hidden flex justify-end gap-5 items-center flex-grow">
+        <div class="center">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.7204 9.00515H10.0429L9.80274 8.78411C10.6723 7.8214 11.1502 6.59234 11.1492 5.32122C11.1492 4.26879 10.8223 3.23998 10.2097 2.36491C9.59719 1.48984 8.72655 0.807807 7.70793 0.405056C6.6893 0.0023056 5.56843 -0.103072 4.48706 0.102248C3.40569 0.307569 2.41239 0.814366 1.63277 1.55855C0.853145 2.30274 0.322215 3.25089 0.107117 4.2831C-0.107981 5.31532 0.00241541 6.38524 0.424345 7.35757C0.846274 8.32989 1.56079 9.16095 2.47753 9.74566C3.39427 10.3304 4.47206 10.6424 5.57462 10.6424C6.9554 10.6424 8.2247 10.1594 9.2024 9.35717L9.43396 9.58639V10.2331L13.7221 14.3182L15 13.0984L10.7204 9.00515ZM5.57462 9.00515C3.43911 9.00515 1.71527 7.35966 1.71527 5.32122C1.71527 3.28279 3.43911 1.6373 5.57462 1.6373C7.71012 1.6373 9.43396 3.28279 9.43396 5.32122C9.43396 7.35966 7.71012 9.00515 5.57462 9.00515Z"
+              fill="black" fill-opacity="0.5" />
+          </svg>
+
+        </div>
+        <div class="center">
+          <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.0011 9V16.88C10.0411 17.18 9.94111 17.5 9.71111 17.71C9.61859 17.8027 9.50871 17.8762 9.38773 17.9264C9.26676 17.9766 9.13708 18.0024 9.00611 18.0024C8.87514 18.0024 8.74546 17.9766 8.62448 17.9264C8.50351 17.8762 8.39362 17.8027 8.30111 17.71L6.29111 15.7C6.18211 15.5933 6.09922 15.4629 6.04892 15.319C5.99861 15.175 5.98225 15.0213 6.00111 14.87V9H5.97111L0.211108 1.62C0.0487158 1.41153 -0.0245586 1.14726 0.00729555 0.88493C0.0391497 0.622602 0.173543 0.383546 0.381108 0.22C0.571108 0.08 0.781108 0 1.00111 0H15.0011C15.2211 0 15.4311 0.08 15.6211 0.22C15.8287 0.383546 15.9631 0.622602 15.9949 0.88493C16.0268 1.14726 15.9535 1.41153 15.7911 1.62L10.0311 9H10.0011Z"
+              fill="#232323" fill-opacity="0.5" />
+          </svg>
+        </div>
       </div>
     </section>
     <section class="">

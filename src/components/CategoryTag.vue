@@ -104,10 +104,10 @@ export default {
         :key="index"
         :class="index == activeIndex ? 'active-tab border-none' : ''"
         @click="toggleCategory(index)"
-        class="p-1 px-4 border border-black rounded-full cursor-pointer"
+        class="p-1 px-2 md:px-4 border border-black rounded-full cursor-pointer center"
       >
         <div class="center">
-          <h4 class="whitespace-nowrap">{{ item?.name }}</h4>
+          <h4 class="whitespace-nowrap text-xs md:text-base">{{ item?.name }}</h4>
         </div>
       </div>
     </div>

@@ -5,8 +5,8 @@
       <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
         alt="Contractor Image" class="w-full h-auto rounded-lg">
     </div>
-    <div class="pl-4 text-black grid grid-cols-3 gap-4">
-      <div>
+    <div class="pl-4 text-black grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+      <div class="lg:col-span-1">
         <div class="text-left">
           <h2 class="text-md font-semibold">Peak Builder & Roofers of San Diego</h2>
           <div class="flex items-center">
@@ -94,7 +94,7 @@
         </div>
       </div>
 
-      <div class="text-left border-l-2 border-r-2 px-4">
+      <div class="text-left border-l-2 lg:border-r-2 px-4 lg:col-span-1">
         <div class="mb-2">
           <h3 class="text-sm font-semibold my-1">Working Hours</h3>
           <p class="text-xs text-gray-600">Monday - Friday: 7:30 AM - 5:00 PM</p>
@@ -105,7 +105,7 @@
           <p class="text-gray-600 text-xs">2901 West Coast Highway, Newport Beach, CA</p>
         </div>
       </div>
-      <div class="flex mt-4 flex-col gap-2 text-sm">
+      <div class="flex mt-4 lg:flex-col flex-row flex-wrap gap-2 text-sm lg:col-span-1 md:col-span-2">
         <div class="flex justify-start gap-2 items-center" v-for="item in 5" :key="item">
           <div class="center"><svg width="17" height="14" viewBox="0 0 17 14" fill="none"
               xmlns="http://www.w3.org/2000/svg">
