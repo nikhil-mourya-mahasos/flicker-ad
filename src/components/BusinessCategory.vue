@@ -83,28 +83,28 @@ export default {
   name: "BusinessCategory",
   props: {
     isCarousel: { type: Boolean, default: false },
-    list: { default: [] }
+    // list: { default: [] }
   },
   data() {
     return {
-      // list: [
-      //   { name: "Service" },
-      //   { name: "Jobs" },
-      //   { name: "Accomedation" },
-      //   { name: "Real Estate" },
-      //   { name: "Legal/Lawyers" },
-      //   { name: "Repairs" },
-      //   { name: "Trining" },
-      //   { name: "Pets" },
-      //   { name: "Rent" },
-      //   { name: "Lease" },
-      //   { name: "Service" },
-      //   { name: "Jobs" },
-      //   { name: "Accomedation" },
-      //   { name: "Real Estate" },
-      //   { name: "Legal/Lawyers" },
-      //   { name: "Repairs" },
-      // ],
+      list: [
+        { name: "Service" },
+        { name: "Jobs" },
+        { name: "Accomedation" },
+        { name: "Real Estate" },
+        { name: "Legal/Lawyers" },
+        { name: "Repairs" },
+        { name: "Trining" },
+        { name: "Pets" },
+        { name: "Rent" },
+        { name: "Lease" },
+        { name: "Service" },
+        { name: "Jobs" },
+        { name: "Accomedation" },
+        { name: "Real Estate" },
+        { name: "Legal/Lawyers" },
+        { name: "Repairs" },
+      ],
       isRightSlide: false,
     };
   },

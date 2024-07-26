@@ -162,7 +162,7 @@ const toggleTab = (index) => {
           </div>
           <AboutUs v-if="activeTabIndex == 0" />
           <CourseFeeCard v-if="activeTabIndex == 2" />
-          <div v-if="activeTabIndex == 3" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div v-if="activeTabIndex == 3" class="grid grid-cols-1 gap-3">
             <ReviewCard v-for="item in 5" :key="item" :full-name="'John Doe'"
               :img="'https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg'" />
           </div>

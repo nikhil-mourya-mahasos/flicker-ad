@@ -20,7 +20,7 @@
             <button class="p-2 px-4 text-black border-teal-400 border rounded-lg">Enroll Now</button>
         </div>
     </div>
-    <div class="p-3 border rounded-lg overflow-hidden">
+    <div class="md:hidden p-3 border rounded-lg overflow-hidden">
         <div class="flex p-1 justify-between flex-row">
             <h2 class="text-gray-600 text-md font-bold" >Course</h2>
             <p class="text-black text-md" >UI Design</p>
