@@ -154,7 +154,7 @@ const list = ref([
     </section>
     <section class="flex justify-start gap-10 my-4">
       <div class="center">
-        <h3 class="font-bold md:text-lg text-xs">All Contractors</h3>
+        <h3 class="font-bold md:text-base text-xs">All Contractors</h3>
       </div>
       <div class="p-1 hidden md:block"><input placeholder="ex. search contractor"
           class="p-1 px-2 md:p-2 md:px-4 bg-transparent border-black border rounded-lg" />
