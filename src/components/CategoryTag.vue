@@ -1,7 +1,6 @@
 <script>
 export default {
   name: "CategoryTag",
-  components: {},
   props: {
     list: {
       default: [],
@@ -10,6 +9,7 @@ export default {
   data() {
     return {
       isRightSlide: false,
+      activeIndex:0
     };
   },
   methods: {
@@ -28,11 +28,14 @@ export default {
         behavior: "smooth", // Optional, adds smooth scrolling animation
       });
     },
+    toggleCategory(index){
+      this.activeIndex=index;
+    }
   },
 };
 </script>
 <template>
-  <div class="grid grid-cols-12 gap-2 md:gap-5 my-2 md:my-5">
+  <div class="flex justify-start flex-row gap-2 md:gap-5 my-2 md:my-5">
     <div class="col-span-1 center" v-if="isRightSlide">
       <div @click="handleSlideLeft()" class="cursor-pointer rotate-180">
         <svg
@@ -99,7 +102,8 @@ export default {
       <div
         v-for="(item, index) in list"
         :key="index"
-        :class="index == 0 ? 'active-tab' : ''"
+        :class="index == activeIndex ? 'active-tab border-none' : ''"
+        @click="toggleCategory(index)"
         class="p-1 px-4 border border-black rounded-full cursor-pointer"
       >
         <div class="center">
