@@ -1,267 +1,83 @@
 <template>
   <section>
     <div class="p-8 mx-16 text-left">
-      <h3 class="text-2xl font-bold my-4">(if Real Estate) Property Details</h3>
-      <div class="grid grid-cols-2 gap-10 border rounded-lg p-5">
+      <h3 class="text-xl font-bold my-2">(if Real Estate) Property Details</h3>
+      <div class="grid grid-cols-2 gap-10 border-2 rounded-lg p-5">
         <div class="">
-          <DynamicInput
-            :placeholder="'Ex. Apartment or Commercial land'"
-            :name="'Title'"
-            :isLabel="true"
-            v-model="formData.house_type"
-            :isRequired="true"
-            :label="'Property Details'"
-            :labelPosition="'top'"
-            :isPrefixIcon="false"
-          />
+          <DynamicInput :placeholder="'Ex. Apartment or Commercial land'" :name="'Title'" :isLabel="true"
+            v-model="formData.house_type" :isRequired="true" :label="'Property Details'" :labelPosition="'top'"
+            :isPrefixIcon="false" />
         </div>
         <div class="">
-          <DynamicInput
-            :placeholder="'Ex. 5400'"
-            v-model="formData.bed_rooms"
-            :isLabel="true"
-            :label="'Property Area Size'"
-            :name="'bed_rooms'"
-            :labelPosition="'top'"
-            :isPrefixIcon="false"
-          />
+          <DynamicInput :placeholder="'Ex. 5400'" v-model="formData.bed_rooms" :isLabel="true"
+            :label="'Property Area Size'" :name="'bed_rooms'" :labelPosition="'top'" :isPrefixIcon="false" />
         </div>
         <div class="">
-          <p>Available for</p>
-          <!-- stay_available_for -->
-          <div class="flex justify-start items-center gap-10">
-            <div>
-              <input
-                checked
-                id="checked-checkbox"
-                type="checkbox"
-                value=""
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="checked-checkbox"
-                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >Any Stay</label
-              >
-            </div>
-            <div>
-              <input
-                checked
-                id="checked-checkbox"
-                type="checkbox"
-                value=""
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="checked-checkbox"
-                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >Long Term
-              </label>
-            </div>
-            <div>
-              <input
-                checked
-                id="checked-checkbox"
-                type="checkbox"
-                value=""
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="checked-checkbox"
-                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >Short Term
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <DynamicInput
-            :placeholder="'Ex. 12/3/5323'"
-            v-model="formData.available_from"
-            :isLabel="true"
-            :label="'Available From'"
-            :name="'available_from'"
-            :labelPosition="'top'"
-            :isPrefixIcon="false"
-          />
-          <div class="flex items-center my-5">
-            <!-- available_from_today -->
-            <input
-              checked
-              id="checked-checkbox"
-              type="checkbox"
-              value=""
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="checked-checkbox"
-              class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Available From Today</label
-            >
-          </div>
-        </div>
-        <div class="">
-          <p>Smoking Allowed</p>
-          <!-- smoking_allowed -->
-          <div class="flex justify-start items-center gap-10">
-            <div class="flex items-center">
-              <input
-                id="disabled-radio-1"
-                type="radio"
-                value=""
-                name="disabled-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="disabled-radio-1"
-                class="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500"
-                >Yes</label
-              >
-            </div>
-            <div class="flex items-center">
-              <input
-                checked
-                id="disabled-radio-2"
-                type="radio"
-                value=""
-                name="disabled-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="disabled-radio-2"
-                class="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500"
-                >No</label
-              >
-            </div>
-            <div class="flex items-center">
-              <input
-                checked
-                id="disabled-radio-2"
-                type="radio"
-                value=""
-                name="disabled-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="disabled-radio-2"
-                class="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500"
-                >Outside Only</label
-              >
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <p>Pets Allowed</p>
-          <!-- pets_allowed -->
-          <div class="flex justify-start items-center gap-10">
-            <div class="flex items-center">
-              <input
-                id="disabled-radio-1"
-                type="radio"
-                value=""
-                name="disabled-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="disabled-radio-1"
-                class="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500"
-                >Yes</label
-              >
-            </div>
-            <div class="flex items-center">
-              <input
-                checked
-                id="disabled-radio-2"
-                type="radio"
-                value=""
-                name="disabled-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="disabled-radio-2"
-                class="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500"
-                >No</label
-              >
-            </div>
-          </div>
+          <DynamicInput :placeholder="'Ex. 5400'" v-model="formData.bed_rooms" :isLabel="true"
+            :label="'Estimated/Selling Price'" :name="'bed_rooms'" :labelPosition="'top'" :isPrefixIcon="false" />
         </div>
       </div>
     </div>
     <div class="p-8 mx-16 text-left">
-      <h3 class="text-2xl font-bold my-4">Additional Info</h3>
-      <!-- accommodation_properties -->
-      <div class="grid grid-cols-6 gap-10 border rounded-lg p-5">
-        <div class="flex items-center">
-          <input
-            id="default-checkbox"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            for="default-checkbox"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >401(K) Plan</label
-          >
+      <h3 class="text-xl font-bold my-2">Additional Info</h3>
+      <div class="grid grid-cols-2 gap-10 border-2 rounded-lg p-5">
+        <div class="">
+          <DynamicInput :placeholder="'Ex. Apartment or Commercial land'" :name="'Title'" :isLabel="true"
+            v-model="formData.house_type" :isRequired="true" :label="'Nearby Place'" :labelPosition="'top'"
+            :isPrefixIcon="false" />
         </div>
-        <div class="flex items-center">
-          <input
-            checked
-            id="checked-checkbox"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            for="checked-checkbox"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Dental Insurance</label
-          >
-        </div>
-        <div class="flex items-center">
-          <input
-            checked
-            id="checked-checkbox"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            for="checked-checkbox"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Paid Time Off</label
-          >
-        </div>
-        <div class="flex items-center">
-          <input
-            checked
-            id="checked-checkbox"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            for="checked-checkbox"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Life Insurance</label
-          >
-        </div>
-        <div class="flex items-center">
-          <input
-            checked
-            id="checked-checkbox"
-            type="checkbox"
-            value=""
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            for="checked-checkbox"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Health Insurance</label
-          >
+        <div class="">
+          <DynamicInput :placeholder="'Ex. 5400'" v-model="formData.bed_rooms" :isLabel="true"
+            :label="'Property Amenities'" :name="'bed_rooms'" :labelPosition="'top'" :isPrefixIcon="false" />
         </div>
       </div>
     </div>
+    <div class="p-8 mx-16 text-left">
+      <h3 class="text-xl font-bold my-2">Realtor Details</h3>
+      <div class="grid grid-cols-2 gap-10 border-2 rounded-lg p-5">
+        <div class="">
+          <DynamicInput :placeholder="'Ex. Apartment or Commercial land'" :name="'Title'" :isLabel="true"
+            v-model="formData.house_type" :isRequired="true" :label="'Realtor Name'" :labelPosition="'top'"
+            :isPrefixIcon="false" />
+        </div>
+        <div class="">
+          <DynamicInput :placeholder="'Ex. XXX-DKS-XXX'" v-model="formData.bed_rooms" :isLabel="true" :label="'License'"
+            :name="'bed_rooms'" :labelPosition="'top'" :isPrefixIcon="false" />
+        </div>
+        <div class="col-span-2">
+          <h3 class="text-xl font-bold my-2">Business Location</h3>
+          <div class="grid grid-cols-3 gap-10 border-2 rounded-lg p-5">
+            <div class="col-span-3">
+              <DynamicInput :placeholder="'Ex. Apartment or Commercial land'" :name="'Title'" :isLabel="true"
+                v-model="formData.house_type" :isRequired="true" :label="'Street Address'" :labelPosition="'top'"
+                :isPrefixIcon="false" />
+            </div>
+            <div class="">
+              <DynamicInput :placeholder="'zip code'" v-model="formData.bed_rooms" :isLabel="true" :label="'Zip Code'"
+                :name="'zip-code'" :labelPosition="'top'" :isPrefixIcon="false" />
+            </div>
+            <div class="">
+              <DynamicInput :placeholder="'city'" v-model="formData.bed_rooms" :isLabel="true" :label="'City'"
+                :name="'city'" :labelPosition="'top'" :isPrefixIcon="false" />
+            </div>
+            <div class="">
+              <DynamicInput :placeholder="'state'" v-model="formData.bed_rooms" :isLabel="true" :label="'State'"
+                :name="'state'" :labelPosition="'top'" :isPrefixIcon="false" />
+            </div>
+          </div>
+        </div>
+        <div class="col-span-2">
+          <DynamicInput :placeholder="'Dropdowns'" v-model="formData.bed_rooms" :isLabel="true" :label="'Services Provides In'"
+            :name="'state'" :labelPosition="'top'" :isPrefixIcon="false" />
+        </div>
+        <div class="col-span-2">
+          <DynamicInput :placeholder="'enter business hours'" v-model="formData.bed_rooms" :isLabel="true" :type="'textarea'"
+          :label="'Hours of Operations'" :name="'state'" :labelPosition="'top'" :isPrefixIcon="false" />
+        </div>
+      </div>
+
+    </div>
+
   </section>
 </template>
 <script setup>

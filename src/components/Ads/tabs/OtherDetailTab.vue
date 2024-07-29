@@ -7,6 +7,8 @@
     <SaleForm v-if="categoryId == 2" />
     <JobForm v-if="categoryId == 3" />
     <AccommodationForm v-if="categoryId == 4" />
+    <RealEstateForm v-if="categoryId == 5"  />
+    <LegalLawyer v-if="categoryId == 6" />
   </section>
 </template>
 <script setup>
@@ -15,7 +17,8 @@ import AccommodationForm from "./CategoryForms/AccommodationForm.vue";
 import JobForm from "./CategoryForms/JobForm.vue";
 import SaleForm from "./CategoryForms/SaleForm.vue";
 import ServiceForm from "./CategoryForms/ServiceForm.vue";
-
+import RealEstateForm from "./CategoryForms/RealEstateForm.vue";
+import LegalLawyer from "./CategoryForms/LegalLawyer.vue";
 import { defineProps, onMounted, ref } from "vue";
 
 const props = defineProps({
