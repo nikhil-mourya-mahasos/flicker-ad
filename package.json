@@ -15,6 +15,7 @@
     "flowbite": "^2.4.1",
     "form-wizard-vue3": "^1.1.0",
     "js-cookie": "^3.0.5",
+    "material-icons": "^1.13.12",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
