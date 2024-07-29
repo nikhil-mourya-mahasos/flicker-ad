@@ -203,11 +203,11 @@
             </div>
           </div>
         </div>
-        <div class="flex justify-around w-full flex-wrap gap-4 my-5">
+        <div class="flex justify-around w-full flex-wrap gap-2 my-5">
           <div
             v-for="(item, index) in postlist"
             :key="index"
-            class="xxs:w-[47%] md:w-[30%] cursor-pointer"
+            class=" cursor-pointer"
           >
             <router-link to="/post/12"
               ><PostDetail

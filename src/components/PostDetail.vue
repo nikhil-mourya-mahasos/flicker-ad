@@ -1,7 +1,7 @@
 <template>
-  <section class="">
+  <section class="w-72">
     <div class="rounded-lg overflow-hidden border primary-border-color">
-      <img class="w-full rounded-t-lg h-32 md:h-48 object-cover" :src="image" />
+      <img class="w-full rounded-t-lg h-40 md:h-48 object-cover" :src="image" />
       <div class="p-2 text-left">
         <h3 class="my-1 xs:my-3">{{ title }}</h3>
         <div class="flex gap-2 xl:gap-10 lg:gap-5">

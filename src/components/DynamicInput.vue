@@ -12,11 +12,11 @@
              {{ icon }}
             </span>
           </div>
-          <input v-if="type !== 'textarea'" :type="type" :name="label" @change="checkValidation"
+          <input v-if="type !== 'textarea'" :type="inputType" :name="label" @change="checkValidation"
             @focus="checkValidation" :id="label" v-bind="$attrs" :value="modelValue" :placeholder="placeholder"
             @input="(e) => $emit('update:modelValue', e.target.value)"
             class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" />
-          <textarea v-else :type="type" :name="label" @change="checkValidation" @focus="checkValidation" :id="label"
+          <textarea v-else :type="inputType" :name="label" @change="checkValidation" @focus="checkValidation" :id="label"
             v-bind="$attrs" :value="modelValue" :rows="textAreaRows" :placeholder="placeholder"
             @input="(e) => $emit('update:modelValue', e.target.value)"
             class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" />
@@ -59,6 +59,7 @@ const props = defineProps({
   isRequired: { type: [Boolean], default: false },
   requiredMessage: { type: [String], default: "" },
   type: { default: "text" },
+  inputType: { default: "text" },
   textAreaRows: { default: 4 },
   isPrefixIcon: { default: true },
   icon: { default: "" }

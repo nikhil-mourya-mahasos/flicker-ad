@@ -138,9 +138,10 @@
         </div>
 
         <div
-          class="flex w-full xl:gap-8 lg:gap-6 xxs:gap-3 justify-end xxs:justify-around xl:mx-10"
+          class="flex w-full xl:gap-8 lg:gap-6 xxs:gap-3 md:justify-end justify-around xl:mx-10"
+          :class="isLoggedIn == false ? '':''"
         >
-          <button class="text-gray-400 focus:outline-none">
+          <button v-show="isLoggedIn" class="text-gray-400 focus:outline-none">
             <svg
               width="20"
               height="20"
@@ -155,7 +156,7 @@
               />
             </svg>
           </button>
-          <button class="text-gray-400 focus:outline-none">
+          <button v-show="isLoggedIn" class="text-gray-400 focus:outline-none">
             <svg
               width="20"
               height="20"
@@ -170,7 +171,7 @@
             </svg>
           </button>
           <!-- Notification button -->
-          <button class="text-gray-400 focus:outline-none">
+          <button v-show="isLoggedIn" class="text-gray-400 focus:outline-none">
             <router-link to="/account/notification">
               <svg
                 width="20"
@@ -186,10 +187,11 @@
                 <path
                   d="M24.5672 24.5922L24.5072 24.5061C24.0983 24.1141 23.6708 23.7404 23.2261 23.3861C23.2066 23.3689 23.1857 23.3574 23.1662 23.3402V23.3301C22.357 22.651 22.417 22.1154 22.417 22.1154C22.396 21.9618 22.387 21.791 22.396 21.5899C22.426 18.6824 22.4155 15.7275 22.4065 13.1359C22.3855 9.26354 19.8143 5.954 16.0128 4.90299C15.2005 4.67495 14.3584 4.55892 13.512 4.5584V0.159088C13.8521 0.159088 14.1713 0.417533 14.1833 0.72336C14.2027 1.10528 14.1923 1.4987 14.1923 1.90072V3.16136L14.9115 3.30494L15.1033 3.34371C15.2322 3.37242 15.343 3.39109 15.4524 3.41119C20.1949 4.26119 23.7071 8.20104 23.776 12.7827C23.8165 14.9335 23.806 17.1231 23.797 19.2366C23.797 19.8971 23.7865 20.5576 23.7865 21.2166C23.7865 21.7134 23.9663 22.1154 24.3364 22.46C24.756 22.852 25.177 23.2641 25.5876 23.6546C25.9367 23.9892 26.2978 24.3438 26.6664 24.6784C27.0785 25.0703 27.0276 25.29 26.9377 25.5111C26.8373 25.7308 26.7069 25.9318 26.1285 25.9318H13.5225V24.5922H13.5H24.5672Z"
                   fill="black"
-                /></svg
-            ></router-link>
+                />
+              </svg>
+            </router-link>
           </button>
-          <button class="text-black focus:outline-none">
+          <button v-show="isLoggedIn" class="text-black focus:outline-none">
             <router-link to="/services/register">
               <div class="flex justify-center items-center lg:gap-3">
                 <span class="h-5 w-5"
@@ -205,8 +207,8 @@
                       stroke="black"
                       stroke-width="1.5"
                       stroke-linecap="round"
-                    /></svg
-                ></span>
+                    />
+                    </svg></span>
 
                 <span class="text-sm sm:text-[12px] hidden md:flex"
                   >Register Business</span

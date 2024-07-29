@@ -88,11 +88,11 @@
     </div>
   </div>
 
-  <section class="w-full xxs:h-dvh overflow-hidden p-2 bg-default" :class="isModalActive ? 'blur-sm' : 'blur-none'">
-    <div class="xl:container lg:container md:container p-2 lg:p-5 mx-auto">
+  <section class="w-full overflow-hidden p-2 bg-default" :class="isModalActive ? 'blur-sm' : 'blur-none'">
+    <div class="md:container p-2 lg:p-5 mx-auto">
       <div class="grid p-3 gap-16 xl:grid-cols-9 lg:grid-cols-9 md:grid-cols-9">
         <div class="xl:col-span-5 xl:block lg:block lg:col-span-5 md:hidden sm:hidden xs:hidden xxs:hidden rounded-xl">
-          <div class="p-1">
+          <div class="p-5">
             <div class="center">
               <img class="" src="@/assets/amico.png" />
             </div>
@@ -106,19 +106,20 @@
           <form class="">
             <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <DynamicInput :placeholder="'Ex.John'" :isLabel="true" :isRequired="true" :requiredMessage="'First name'" :name="'firstname'"
-                  :label="'Enter Your First Name'" :labelPosition="'top'" :icon="'person'" />
+                <DynamicInput :placeholder="'Ex.John'" :isLabel="true" :isRequired="true"
+                  :requiredMessage="'First name'" :name="'firstname'" :label="'Enter Your First Name'"
+                  :labelPosition="'top'" :icon="'person'" />
               </div>
               <div>
-                <DynamicInput :placeholder="'Ex.Doe'" :isLabel="true" :isRequired="true" :requiredMessage="'Last name'" :name="'lastname'"
-                  :label="'Enter Your Last Name'" :labelPosition="'top'" :icon="'person'" />
+                <DynamicInput :placeholder="'Ex.Doe'" :isLabel="true" :isRequired="true" :requiredMessage="'Last name'"
+                  :name="'lastname'" :label="'Enter Your Last Name'" :labelPosition="'top'" :icon="'person'" />
               </div>
 
             </div>
             <div class="my-4">
               <DynamicInput :placeholder="'Ex. Ramman12'" :isLabel="true" :isTooltip="true" :isRequired="true"
-                :tooltipContent="'tooltip string for username'" :label="'Choose Username'" :requiredMessage="'Username'" :name="'userName'"
-                :labelPosition="'top'" :icon="'person'" />
+                :tooltipContent="'tooltip string for username'" :label="'Choose Username'" :requiredMessage="'Username'"
+                :name="'userName'" :labelPosition="'top'" :icon="'person'" />
             </div>
             <div class="my-4 relative">
               <div class="absolute cursor-pointer top-0 right-10 color-primary text-blue-500 center gap-2">
@@ -133,22 +134,27 @@
                 </span>
               </div>
               <DynamicInput v-if="!isPhone" :placeholder="'Ex.Ramman@gmail.com'" @change="verifyMailContact"
-                :name="'email'" :isLabel="true" :isRequired="true" :isTooltip="true"  :requiredMessage="'E-mail'"
-                :tooltipContent="'tooltip string email verify'" :label="'Enter Email'" :labelPosition="'top'" :icon="'mail'" />
-              <DynamicInput v-else :placeholder="'Ex.4477292003'" @change="verifyMailContact" :name="'contactNumber'"  :requiredMessage="'Contact Number'"
-                :isLabel="true" :isRequired="true" :isTooltip="true" :tooltipContent="'tooltip string contact number'"
-                :label="'Enter Phone Number'" :labelPosition="'top'" :icon="'call'" />
+                :name="'email'" :isLabel="true" :isRequired="true" :isTooltip="true" :requiredMessage="'E-mail'"
+                :tooltipContent="'tooltip string email verify'" :label="'Enter Email'" :labelPosition="'top'"
+                :icon="'mail'" />
+              <DynamicInput v-else :placeholder="'Ex.4477292003'" @change="verifyMailContact" :name="'contactNumber'"
+                :requiredMessage="'Contact Number'" :isLabel="true" :isRequired="true" :isTooltip="true"
+                :tooltipContent="'tooltip string contact number'" :label="'Enter Phone Number'" :labelPosition="'top'"
+                :icon="'call'" />
             </div>
             <div class="my-4">
-              <DynamicInput :placeholder="'Ex.*****'" :isLabel="true" :name="'password'" :label="'Password'"  :requiredMessage="'Password'"
-                :labelPosition="'top'" :isRequired="true" :icon="'lock'" />
+              <DynamicInput :placeholder="'Ex.*****'" :isLabel="true" :name="'password'" :label="'Password'"
+                :requiredMessage="'Password'" :labelPosition="'top'" :isRequired="true" :icon="'lock'" />
             </div>
-            <div class="w-full my-2 text-start">
-              <p class="text-gray-500 p-1 focus:outline-none">
+            <div class="relative w-full flex justify-start gap-1 items-baseline my-2">
+              <div class="w-12 h-5">
+                <CustomCheckbox v-model="isTermsAccpeted" :is-label="false" label="Accept Terms and Conditions" />
+              </div>
+              <div class="text-gray-500 text-sm text-left">
                 By clicking register, you agree to our
-                <span class="text-[#008080] inline-block">Terms of Use</span> and 
+                <span class="text-[#008080] inline-block">Terms of Use</span> and
                 <span class="text-[#008080] inline-block">Privacy Policy</span>
-              </p>
+              </div>
             </div>
             <div class="w-full my-5 flex justify-center gap-5 items-center">
               <button class="primary-bg w-1/2 py-3 text-white rounded-xl p-1 px-5 focus:outline-none">
@@ -180,12 +186,14 @@
 
 <script>
 import DynamicInput from "@/components/DynamicInput.vue";
+import CustomCheckbox from "@/components/CustomCheckbox.vue";
 import { Modal } from "flowbite";
 
 export default {
   name: "SignUp",
   components: {
     DynamicInput,
+    CustomCheckbox
   },
   data() {
     return {
@@ -195,6 +203,7 @@ export default {
       modal: undefined,
       isPhone: false,
       isModalActive: true,
+      isTermsAccpeted: false
     };
   },
   mounted() {
