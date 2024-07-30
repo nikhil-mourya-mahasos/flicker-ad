@@ -4,20 +4,20 @@
   /> -->
   <div class="text-left">
     <label v-if="isLabel" :for="label" class="block font-bold text-xs text-gray-900">{{ label }}</label>
-    <div class="mt-2">
+    <div :class="isLabel ? 'mt-2' : 'mt-0'">
       <div class="relative">
         <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2">
           <div v-if="isPrefixIcon" class="w-10 center">
             <span class="material-icons-outlined text-gray-400">
-             {{ icon }}
+              {{ icon }}
             </span>
           </div>
           <input v-if="type !== 'textarea'" :type="inputType" :name="label" @change="checkValidation"
             @focus="checkValidation" :id="label" v-bind="$attrs" :value="modelValue" :placeholder="placeholder"
             @input="(e) => $emit('update:modelValue', e.target.value)"
             class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" />
-          <textarea v-else :type="inputType" :name="label" @change="checkValidation" @focus="checkValidation" :id="label"
-            v-bind="$attrs" :value="modelValue" :rows="textAreaRows" :placeholder="placeholder"
+          <textarea v-else :type="inputType" :name="label" @change="checkValidation" @focus="checkValidation"
+            :id="label" v-bind="$attrs" :value="modelValue" :rows="textAreaRows" :placeholder="placeholder"
             @input="(e) => $emit('update:modelValue', e.target.value)"
             class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" />
 
