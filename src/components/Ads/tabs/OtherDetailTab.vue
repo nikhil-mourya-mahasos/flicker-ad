@@ -7,8 +7,14 @@
     <SaleForm v-if="categoryId == 2" />
     <JobForm v-if="categoryId == 3" />
     <AccommodationForm v-if="categoryId == 4" />
-    <RealEstateForm v-if="categoryId == 5"  />
+    <RealEstateForm v-if="categoryId == 5" />
     <LegalLawyer v-if="categoryId == 6" />
+    <RentLease v-if="categoryId == 8" />
+    <PetAdoption v-if="categoryId == 10" />
+    <SkilledTrade v-if="categoryId == 7" />
+    <TrainingLesson v-if="categoryId == 9" />
+    <!-- <PetAccessory v-if="categoryId == 6"/> -->
+    <RepairsForm v-if="categoryId == 13" />
   </section>
 </template>
 <script setup>
@@ -19,6 +25,15 @@ import SaleForm from "./CategoryForms/SaleForm.vue";
 import ServiceForm from "./CategoryForms/ServiceForm.vue";
 import RealEstateForm from "./CategoryForms/RealEstateForm.vue";
 import LegalLawyer from "./CategoryForms/LegalLawyer.vue";
+import RepairsForm from "./CategoryForms/RepairsForm.vue";
+// import PetAccessory from "./CategoryForms/PetAccessory.vue";
+import PetAdoption from "./CategoryForms/PetAdoption.vue";
+import RentLease from "./CategoryForms/RentLease.vue";
+import SkilledTrade from "./CategoryForms/SkilledTrade.vue";
+import TrainingLesson from "./CategoryForms/TrainingLesson.vue";
+
+
+
 import { defineProps, onMounted, ref } from "vue";
 
 const props = defineProps({

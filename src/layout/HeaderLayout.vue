@@ -62,7 +62,7 @@
             <div class="">
               <div class="relative w-full">
                 <div class="absolute left-3 top-1/2 transform -translate-y-1/2 flex justify-start gap-2">
-                  <button class="text-gray-400 focus:outline-none">
+                  <button class="text-gray-400 focus:outline-none" @click="$refs.locationInput.focus()">
                     <svg width="16" height="16" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M13.5712 9.18713C13.5712 10.2315 13.1423 11.233 12.3788 11.9715C11.6153 12.7099 10.5797 13.1248 9.5 13.1248C8.42026 13.1248 7.38474 12.7099 6.62124 11.9715C5.85775 11.233 5.42882 10.2315 5.42882 9.18713C5.42882 8.14281 5.85775 7.14126 6.62124 6.40281C7.38474 5.66437 8.42026 5.24951 9.5 5.24951C10.5797 5.24951 11.6153 5.66437 12.3788 6.40281C13.1423 7.14126 13.5712 8.14281 13.5712 9.18713ZM12.2141 9.18713C12.2141 8.49092 11.9282 7.82322 11.4192 7.33092C10.9102 6.83862 10.2198 6.56205 9.5 6.56205C8.78017 6.56205 8.08982 6.83862 7.58083 7.33092C7.07183 7.82322 6.78588 8.49092 6.78588 9.18713C6.78588 9.88335 7.07183 10.551 7.58083 11.0433C8.08982 11.5356 8.78017 11.8122 9.5 11.8122C10.2198 11.8122 10.9102 11.5356 11.4192 11.0433C11.9282 10.551 12.2141 9.88335 12.2141 9.18713ZM16.2174 15.6908C17.9991 13.9666 19 11.6287 19 9.19107C19 6.7534 17.9991 4.41551 16.2174 2.69137C15.3353 1.83811 14.2881 1.16126 13.1355 0.699468C11.9829 0.23768 10.7476 0 9.5 0C8.25244 0 7.01709 0.23768 5.86451 0.699468C4.71192 1.16126 3.66467 1.83811 2.78256 2.69137C1.00087 4.41551 0 6.7534 0 9.19107C0 11.6287 1.00087 13.9666 2.78256 15.6908L4.84665 17.6583L7.61912 20.2637L7.7996 20.4185C8.85133 21.2428 10.3916 21.1903 11.3822 20.2637L14.6867 17.1529L16.2174 15.6908ZM3.73929 3.61671C4.49549 2.8845 5.3935 2.30363 6.38196 1.90731C7.37043 1.511 8.42997 1.30701 9.5 1.30701C10.57 1.30701 11.6296 1.511 12.618 1.90731C13.6065 2.30363 14.5045 2.8845 15.2607 3.61671C16.7457 5.05486 17.5994 6.99188 17.6439 9.02394C17.6884 11.056 16.9202 13.0263 15.4996 14.5239L15.2607 14.7654L13.468 16.477L10.4418 19.3239L10.3142 19.4289C10.0792 19.5991 9.7934 19.691 9.49977 19.6907C9.20615 19.6905 8.92052 19.5982 8.68576 19.4276L8.55956 19.3226L4.51552 15.5096L3.73929 14.7654L3.50044 14.5252C2.07975 13.0276 1.31158 11.0573 1.35607 9.02526C1.40057 6.9932 2.25431 5.05486 3.73929 3.61671Z"
@@ -74,9 +74,17 @@
                   >
                     San Diego, CA
                   </p> -->
-                  <input @focus="handleInputWidthOnFocus" @focusout="handleInputWidthOnFocusOut" @input="findCity"
-                    class=" w-20 p-2 transition-all duration-150 focus:outline-[1px] outline-gray-300 outline-[1px]  lg:block xl:block  text-xs text-nowrap overflow-hidden text-primary border-none"
-                    v-model="cityValue" />
+                  <div class="relative">
+                    <input @focus="handleInputWidthOnFocus" @focusout="handleInputWidthOnFocusOut" @input="findCity" ref="locationInput"
+                      class="w-20 p-1 transition-all duration-150 focus:outline-[1px] outline-gray-300 outline-[1px]  lg:block xl:block  text-xs text-nowrap overflow-hidden text-primary border-none"
+                      v-model="cityValue" />
+                    <ul v-if="SearchResults.length" class=" w-64 bg-white absolute top-10 border rounded-lg list-none" >
+                      <li class="text-xs text-black p-1 cursor-pointer text-left hover:pl-2 transition-all duration-100" v-for="(result, index) in SearchResults" :key="index" @click="selectResult(result.description)">
+                        {{ result.description }}
+                      </li>
+                    </ul>
+                  </div>
+
                 </div>
 
                 <input type="text"
@@ -84,7 +92,7 @@
                   placeholder="Search..." />
 
                 <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 focus:outline-none">
-                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="17" height="17" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M15.7233 13.2075H14.7296L14.3774 12.8834C15.6527 11.4714 16.3536 9.66876 16.3522 7.80446C16.3522 6.26089 15.8727 4.75197 14.9743 3.46854C14.0759 2.1851 12.7989 1.18478 11.305 0.594083C9.81097 0.00338155 8.16703 -0.151173 6.58102 0.149964C4.99502 0.451101 3.53818 1.1944 2.39473 2.28588C1.25128 3.37735 0.472582 4.76797 0.157105 6.28189C-0.158371 7.7958 0.0035426 9.36502 0.622372 10.7911C1.2412 12.2172 2.28915 13.4361 3.63371 14.2936C4.97826 15.1512 6.55902 15.6089 8.1761 15.6089C10.2013 15.6089 12.0629 14.9005 13.4969 13.7238L13.8365 14.06V15.0086L20.1258 21L22 19.211L15.7233 13.2075ZM8.1761 13.2075C5.04403 13.2075 2.51573 10.7942 2.51573 7.80446C2.51573 4.81475 5.04403 2.40138 8.1761 2.40138C11.3082 2.40138 13.8365 4.81475 13.8365 7.80446C13.8365 10.7942 11.3082 13.2075 8.1761 13.2075Z"
                       fill="black" />
@@ -216,7 +224,8 @@ export default {
       options: null,
       instanceOptions: null,
       dropdown: null,
-      cityValue: "amoeba",
+      cityValue: "San Diego",
+      SearchResults: []
     };
   },
   watch: {
@@ -305,21 +314,16 @@ export default {
       event.target.classList.remove('w-full');
     },
     async findCity() {
-      // const data = new URLSearchParams();
-      // data.append('input', this.cityValue);
-      // data.append('key', 'AIzaSyAoIWlHYsmd4gwmCJRM_FSEcoykXP1OOaw');
-
-
-      // let headers = new Headers();
-      // headers.append('Content-Type', 'application/json');
-      // headers.append('Accept', 'application/json');
-      // headers.append('Access-Control-Allow-Origin', 'http://localhost:8080/');
-      
       //Appended Proxy server to prevent CORS error for localhost
-      const res =await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=amoeba&radius=500&key=AIzaSyAoIWlHYsmd4gwmCJRM_FSEcoykXP1OOaw`
-      )
-      console.log(res);
-
+      fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${this.cityValue}&radius=500&key=AIzaSyAoIWlHYsmd4gwmCJRM_FSEcoykXP1OOaw&types=%28cities%29`)
+        .then(res => res.json())
+        .then((data) => {
+          this.SearchResults = data.predictions
+        })
+    },
+    selectResult(data) {
+      this.cityValue = data;
+      this.SearchResults=[]
     }
   },
 };

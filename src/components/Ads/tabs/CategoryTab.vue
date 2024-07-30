@@ -12,7 +12,7 @@
             :class="{ active: item.id == formData.category_id }"
             v-for="(item, index) in categories"
             :key="index"
-            @click="selectCategory(item)"
+            @click.stop="selectCategory(item)"
           >
             <!-- <fp-icon :name="`ads-${item.slug}`" class="fp-fs-22 d-block mx-auto mb-2" /> -->
             <div class="center" v-html="item.icon"></div>
