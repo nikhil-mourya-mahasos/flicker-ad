@@ -99,7 +99,7 @@ const businessCategory = ref([
 <path d="M25.8333 17.3333L20.5 18.6667" stroke="#232323" stroke-width="1.5" stroke-linecap="round"/>
 </svg>
 `,
-    route: "/services/training/explore",
+    route: "/services/trainer/explore",
     subtitle: "Ex. Automotives Seller,New/Used Cars Dealers",
   },
   {

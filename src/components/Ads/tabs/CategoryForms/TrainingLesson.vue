@@ -5,8 +5,9 @@
       <div class="grid grid-cols-2 gap-10 border-2 rounded-lg p-5">
         <DynamicInput :placeholder="'Ex. RG Group'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
           :isRequired="true" :label="'Business or Your Name'" :labelPosition="'top'" :isPrefixIcon="false" />
-        <DynamicInput :placeholder="'Dropdown'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
-          :isRequired="true" :label="'List of Services'" :labelPosition="'top'" :isPrefixIcon="false" />
+        <div>
+          <ItemAdd  :label="'Training Offered'" :placeholder="'Ex. Spanish Classes'" :value="[]" :buttonText="'Add'" />
+        </div>
         <div class="text-left col-span-2">
           <h3 class="text-lg font-bold my-1">Training Mode</h3>
           <div class="grid grid-cols-6 gap-5 border rounded-lg p-5">
@@ -33,6 +34,7 @@
 import CustomCheckbox from "@/components/CustomCheckbox.vue";
 import DynamicInput from "@/components/DynamicInput.vue";
 import TextArea from "../../form_elements/TextArea.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

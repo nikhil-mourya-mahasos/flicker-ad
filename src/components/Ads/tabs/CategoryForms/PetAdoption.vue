@@ -17,9 +17,8 @@
         <DynamicInput :placeholder="'ex. Friendly'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
           :isRequired="true" :label="'Characteristics'" :labelPosition="'top'" :isPrefixIcon="false" />
         <div class="col-span-2">
-          <DynamicInput :placeholder="'any other details'" :name="'Title'" :isLabel="true" :type="'textarea'"
-            :textAreaRows="5" v-model="formData.house_type" :isRequired="true" :label="'Additional Information'"
-            :labelPosition="'top'" :isPrefixIcon="false" />
+            <TextArea id="example-textarea" v-model="formData.house_type" name="example"  :label="'Additional Information'"
+            :placeholder="'any other details'" :minLength="10" :maxLength="200" />
         </div>
       </div>
     </div>
@@ -28,6 +27,7 @@
 </template>
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
+import TextArea from "../../form_elements/TextArea.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

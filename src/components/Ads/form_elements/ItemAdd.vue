@@ -3,7 +3,7 @@
         <label v-if="label" class="block font-bold text-xs text-gray-900">{{ label }}</label>
         <div>
             <form @submit.prevent="addItem()">
-                <div class="flex flex-row justify-start gap-3 flex-wrap mb-2 " v-if="result.length">
+                <div class="flex flex-row justify-start gap-3 flex-wrap mb-2 " v-if="result">
                     <p class="text-xs border p-2 rounded-md flex" v-for="item, index in result" :key="index">
                         {{ item }}
                         <span @click="removeItem(index)" class="material-icons-outlined ml-4 hover:scale-125 transition-all duration-100 cursor-pointer"

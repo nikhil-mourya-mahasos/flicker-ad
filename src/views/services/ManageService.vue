@@ -28,6 +28,10 @@ export default {
         this.activeComponent = "RealEstateExplorePage";
         break;
       }
+      case "trainer": {
+        this.activeComponent = "RealEstateExplorePage";
+        break;
+      }
       default :{
         this.$router.go(-1)
       }

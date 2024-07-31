@@ -10,7 +10,7 @@
             :isRequired="true" :label="'License Info'" :labelPosition="'top'" :isPrefixIcon="false" />
           <!-- <DynamicInput :placeholder="'Select service'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
             :isRequired="true" :label="'List Of Services'" :labelPosition="'top'" :isPrefixIcon="false" /> -->
-          <ItemAdd  :label="'List Of Services'" :placeholder="'Select service'"/>
+          <ItemAdd  :label="'List Of Services'" :placeholder="'Select service'" :value="[]" :buttonText="'Add'" />
         </div>
         <div>
           <DynamicInput :placeholder="'Enter Open Hours'" :name="'Title'" :isLabel="true" :type="'textarea'"

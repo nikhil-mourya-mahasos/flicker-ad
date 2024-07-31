@@ -137,10 +137,26 @@
                 :name="'email'" :isLabel="true" :isRequired="true" :isTooltip="true" :requiredMessage="'E-mail'"
                 :tooltipContent="'tooltip string email verify'" :label="'Enter Email'" :labelPosition="'top'"
                 :icon="'mail'" />
-              <DynamicInput v-else :placeholder="'Ex.4477292003'" @change="verifyMailContact" :name="'contactNumber'"
-                :requiredMessage="'Contact Number'" :isLabel="true" :isRequired="true" :isTooltip="true"
-                :tooltipContent="'tooltip string contact number'" :label="'Enter Phone Number'" :labelPosition="'top'"
-                :icon="'call'" />
+              <div v-else class="flex justify-start items-center gap-5 relative text-left">
+                <div>
+                  <label for="flag" class="block font-bold text-xs text-gray-900">Select Country</label>
+                  <select id="flag" v-model="selectedCountry" class="mt-2 border rounded-lg p-1 h-9 bg-transparent border-gray-300">
+                    <option v-for="country in countries" :key="country.code" :value="country.code">
+                      <span class="flex items-center text-xs">
+                        <!-- <img :srcset="country.flag" :src="country.flag" alt="" class="inline" /> -->
+                        <object :data="country.flag" width="30" height="30"> </object>
+
+                        {{ country.name }}
+                      </span>
+                    </option>
+                  </select>
+                </div>
+                <DynamicInput class="flex-grow" :placeholder="'Ex.4477292003'" @change="verifyMailContact"
+                  :name="'contactNumber'" :requiredMessage="'Contact Number'" :isLabel="true" :isRequired="true"
+                  :isTooltip="true" :tooltipContent="'tooltip string contact number'" :label="'Enter Phone Number'"
+                  :labelPosition="'top'" :icon="'call'" />
+              </div>
+
             </div>
             <div class="my-4">
               <DynamicInput :placeholder="'Ex.*****'" :isLabel="true" :name="'password'" :label="'Password'"
@@ -203,7 +219,13 @@ export default {
       modal: undefined,
       isPhone: false,
       isModalActive: true,
-      isTermsAccpeted: false
+      isTermsAccpeted: false,
+      selectedCountry: 'US',
+      countries: [
+        { code: 'US', name: 'USA', flag: 'https://flagcdn.com/us.svg' },
+        { code: 'CA', name: 'Canada', flag: 'https://flagcdn.com/ca.svg' },
+      ],
+
     };
   },
   mounted() {

@@ -6,8 +6,8 @@
         <div class="flex flex-col gap-4">
           <DynamicInput :placeholder="'Ex. RG Group'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
             :isRequired="true" :label="'Business or Your Name'" :labelPosition="'top'" :isPrefixIcon="false" />
-          <DynamicInput :placeholder="'Dropdown'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
-            :isRequired="true" :label="'List of Services'" :labelPosition="'top'" :isPrefixIcon="false" />
+          <ItemAdd :label="'List Of Services'" :placeholder="'Select service'" :value="[]" :buttonText="'Add'" />
+
         </div>
         <div>
           <DynamicInput :placeholder="'Enter Open Hours'" :name="'Title'" :isLabel="true" :type="'textarea'"
@@ -21,6 +21,7 @@
 </template>
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",
