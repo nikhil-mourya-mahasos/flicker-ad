@@ -17,14 +17,12 @@
           </div>
         </div>
         <div class="">
-          <DynamicInput :placeholder="'Explain course fee'" :name="'Title'" :isLabel="true" :type="'textarea'"
-            :textAreaRows="5" v-model="formData.house_type" :isRequired="true" :label="'Training or Course Fees'"
-            :labelPosition="'top'" :isPrefixIcon="false" />
+          <TextArea id="example-textarea" v-model="formData.house_type" name="example" label="Training or Course Fees"
+            placeholder="Explain course fee" :minLength="10" :maxLength="200" />
         </div>
         <div class="">
-          <DynamicInput :placeholder="'Enter Open Hours'" :name="'Title'" :isLabel="true" :type="'textarea'"
-            :textAreaRows="5" v-model="formData.house_type" :isRequired="true" :label="'Open Hours'"
-            :labelPosition="'top'" :isPrefixIcon="false" />
+          <TextArea id="example-textarea" v-model="formData.house_type" name="example" label="Open Hours"
+            placeholder="Enter Open Hours" :minLength="10" :maxLength="200" />
         </div>
       </div>
     </div>
@@ -34,6 +32,7 @@
 <script setup>
 import CustomCheckbox from "@/components/CustomCheckbox.vue";
 import DynamicInput from "@/components/DynamicInput.vue";
+import TextArea from "../../form_elements/TextArea.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

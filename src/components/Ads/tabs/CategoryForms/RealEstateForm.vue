@@ -20,16 +20,11 @@
     </div>
     <div class="p-8 mx-16 text-left">
       <h3 class="text-xl font-bold my-2">Additional Info</h3>
-      <div class="grid grid-cols-2 gap-10 border-2 rounded-lg p-5">
-        <div class="">
-          <DynamicInput :placeholder="'Ex. Apartment or Commercial land'" :name="'Title'" :isLabel="true"
-            v-model="formData.house_type" :isRequired="true" :label="'Nearby Place'" :labelPosition="'top'"
-            :isPrefixIcon="false" />
-        </div>
-        <div class="">
-          <DynamicInput :placeholder="'Ex. 5400'" v-model="formData.bed_rooms" :isLabel="true"
-            :label="'Property Amenities'" :name="'bed_rooms'" :labelPosition="'top'" :isPrefixIcon="false" />
-        </div>
+      <div class="grid grid-cols-2 gap-10 border rounded-lg p-5">
+        <ItemAdd class="col-span-2 md:col-span-1" :label="'Near By Places'" :value="[]" :buttonText="'Add'"
+          :placeholder="'Ex. Appartment or Commercial land'" />
+        <ItemAdd class="col-span-2 md:col-span-1" :label="'Property Amenities'" :value="[]" :buttonText="'Add'"
+          :placeholder="'Ex. 4210'" />
       </div>
     </div>
     <div class="p-8 mx-16 text-left">
@@ -67,12 +62,12 @@
           </div>
         </div>
         <div class="col-span-2">
-          <DynamicInput :placeholder="'Dropdowns'" v-model="formData.bed_rooms" :isLabel="true" :label="'Services Provides In'"
-            :name="'state'" :labelPosition="'top'" :isPrefixIcon="false" />
+          <!-- <DynamicInput :placeholder="'Dropdowns'" v-model="formData.bed_rooms" :isLabel="true" :label="'Services Provides In'"
+            :name="'state'" :labelPosition="'top'" :isPrefixIcon="false" /> -->
+            <SelectOption :label="'Services Provides In'" :value="'item1'" />
         </div>
         <div class="col-span-2">
-          <DynamicInput :placeholder="'enter business hours'" v-model="formData.bed_rooms" :isLabel="true" :type="'textarea'"
-          :label="'Hours of Operations'" :name="'state'" :labelPosition="'top'" :isPrefixIcon="false" />
+          <TextArea :label="'Hours of Operations'" :placeholder="'enter business hours'" />
         </div>
       </div>
 
@@ -82,6 +77,9 @@
 </template>
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
+import SelectOption from "../../form_elements/SelectOption.vue";
+import TextArea from "../../form_elements/TextArea.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

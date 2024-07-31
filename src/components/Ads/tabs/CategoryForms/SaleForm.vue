@@ -3,93 +3,40 @@
     <h3 class="text-2xl font-bold my-4">if Sale</h3>
     <div class="grid grid-cols-2 gap-10">
       <div class="">
-        <DynamicInput
-          :placeholder="'Ex. MAcbook Pro'"
-          :name="'Title'"
-          :isLabel="true"
-          :isRequired="true"
-          :label="'Item for Sale'"
-          :labelPosition="'top'"
-          :isPrefixIcon="false"
-        />
+        <DynamicInput :placeholder="'Ex. MAcbook Pro'" :name="'Title'" :isLabel="true" :isRequired="true"
+          :label="'Item for Sale'" :labelPosition="'top'" :isPrefixIcon="false" />
       </div>
       <div class="">
-        Sale By Dropdown
-        <DynamicInput
-          :placeholder="'Ex. MAcbook Pro'"
-          :name="'Title'"
-          :isLabel="true"
-          v-model="formData.sale_by"
-          :isRequired="true"
-          :label="'Item for Sale'"
-          :labelPosition="'top'"
-          :isPrefixIcon="false"
-        />
+        <!-- <DynamicInput :placeholder="'Ex. MAcbook Pro'" :name="'Title'" :isLabel="true" v-model="formData.sale_by"
+          :isRequired="true" :label="'Item for Sale'" :labelPosition="'top'" :isPrefixIcon="false" /> -->
+        <SelectOption :label="'Sale By'" />
       </div>
       <div class="">
-        <DynamicInput
-          :placeholder="'Ex. MAcbook Pro'"
-          :name="'Title'"
-          :isLabel="true"
-          :isRequired="true"
-          :label="'Asking Price'"
-          :labelPosition="'top'"
-          :isPrefixIcon="false"
-        />
+        <SelectOption :label="'Condition'" />
       </div>
       <div class="">
-        <DynamicInput
-          :placeholder="'Ex. 2324'"
-          :name="'Asking Price'"
-          :isLabel="true"
-          :isRequired="true"
-          :label="'Item for Sale'"
-          :labelPosition="'top'"
-          :isPrefixIcon="false"
-        />
+        <DynamicInput :placeholder="'Ex. MAcbook Pro'" :name="'Title'" :isLabel="true" :isRequired="true"
+          :label="'Asking Price'" :labelPosition="'top'" :isPrefixIcon="false" />
       </div>
       <div class="">
-        <DynamicInput
-          :placeholder="'Enter Manufacturer'"
-          :name="'AskingPrice'"
-          v-model="formData.manufacturer"
-          :isLabel="true"
-          :isRequired="true"
-          :label="'Make'"
-          :labelPosition="'top'"
-          :isPrefixIcon="false"
-        />
+        <DynamicInput :placeholder="'Enter Manufacturer'" :name="'AskingPrice'" v-model="formData.manufacturer"
+          :isLabel="true" :isRequired="true" :label="'Make'" :labelPosition="'top'" :isPrefixIcon="false" />
       </div>
       <div class="">
-        <DynamicInput
-          :placeholder="'Model or Serial Number'"
-          :name="'AskingPrice'"
-          v-model="formData.model"
-          :isLabel="true"
-          :isRequired="true"
-          :label="'Model'"
-          :labelPosition="'top'"
-          :isPrefixIcon="false"
-        />
+        <DynamicInput :placeholder="'Model or Serial Number'" :name="'AskingPrice'" v-model="formData.model"
+          :isLabel="true" :isRequired="true" :label="'Model'" :labelPosition="'top'" :isPrefixIcon="false" />
       </div>
       <div class="col-span-2">
-        <DynamicInput
-          :placeholder="'Enter details here'"
-          v-model="formData.description"
-          :isLabel="true"
-          :label="'Additional Info'"
-          :name="'description'"
-          :labelPosition="'top'"
-          :textAreaRows="5"
-          :type="'textarea'"
-          :isPrefixIcon="false"
-        />
+        <DynamicInput :placeholder="'Enter details here'" v-model="formData.description" :isLabel="true"
+          :label="'Additional Info'" :name="'description'" :labelPosition="'top'" :textAreaRows="5" :type="'textarea'"
+          :isPrefixIcon="false" />
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
+import SelectOption from "../../form_elements/SelectOption.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

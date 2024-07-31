@@ -1,8 +1,8 @@
 <template>
-  <section>
-    <div class="p-8 mx-16 text-left">
+  <section class="p-8 mx-12">
+    <div class=" text-left">
       <h3 class="text-2xl font-bold my-4 text-gray-500">Job Form</h3>
-      <h3 class="text-2xl font-bold my-4">Key Details</h3>
+      <h3 class="text-xl font-bold my-4">Key Details</h3>
       <div class="grid grid-cols-2 gap-10 border rounded-lg p-5">
         <div class="">
           <DynamicInput :placeholder="'Ex. Marketing manager'" v-model="formData.job_options" :name="'Title'"
@@ -31,21 +31,21 @@
         </div>
       </div>
     </div>
-    <div class="p-8 mx-16 text-left">
-      <h3 class="text-2xl font-bold my-4">Benefits</h3>
-      <div class="grid grid-cols-6 gap-10 border rounded-lg p-5">
+    <div class=" text-left">
+      <h3 class="text-xl font-bold my-4">Benefits</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-col-6  gap-10 border rounded-lg p-5">
         <CustomCheckbox :is-label="true" label="401(K) Plan" />
-
         <CustomCheckbox :is-label="true" label="Dental Insurance" />
         <CustomCheckbox :is-label="true" label="Paid Time Off" />
         <CustomCheckbox :is-label="true" label="Life Insurance" />
         <CustomCheckbox :is-label="true" label="Health Insurance" />
         <CustomCheckbox :is-label="true" label="" />
+        <ItemAdd class="col-span-3" :value="[]" :buttonText="'Add'" :placeholder="'Ex. Retirement Benifits'" />
 
       </div>
     </div>
-    <div class="p-8 mx-16 text-left">
-      <h3 class="text-2xl font-bold my-4">Work Authorization required</h3>
+    <div class=" text-left">
+      <h3 class="text-xl font-bold my-4">Work Authorization required</h3>
       <div class="grid grid-cols-6 gap-10 border rounded-lg p-5">
         <CustomCheckbox :is-label="true" label="Any valid VISA" />
         <CustomCheckbox :is-label="true" label="US citizen" />
@@ -54,7 +54,7 @@
         <CustomCheckbox :is-label="true" label="Health Insurance" />
       </div>
     </div>
-    <div class="p-8 mx-16 text-left">
+    <div class=" text-left">
       <div class="grid grid-rows-4 grid-cols-1 gap-6 p-5">
         <CustomCheckbox :is-label="true" label="We are e-verified and Equal Opportunity Employer(EOE)" />
         <CustomCheckbox :is-label="true" label="Invite people with disabilities for this position" />
@@ -67,6 +67,7 @@
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
 import CustomCheckbox from "@/components/CustomCheckbox.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

@@ -2,7 +2,7 @@
   <div class="p-8 mx-16 text-left border rounded-lg">
     <h3 class="text-2xl font-bold my-4">if Service Category</h3>
     <div class="grid grid-cols-2 gap-10">
-      <div class="grid grid-rows-2">
+      <div class="">
         <DynamicInput
           :placeholder="'Ex. ABC Company'"
           :name="'Title'"
@@ -12,18 +12,8 @@
           :labelPosition="'top'"
           :isPrefixIcon="false"
         />
-        <div class="flex justify-start gap-4">
-          <DynamicInput
-            :placeholder="'Ex. Cloud Service'"
-            v-model="formData.services"
-            :name="'Title'"
-            :isLabel="true"
-            :isRequired="true"
-            :label="'List of Services'"
-            :labelPosition="'top'"
-            :isPrefixIcon="false"
-          />
-          <button>Add</button>
+        <div class="my-2">
+          <ItemAdd :value="[]" :label="'List of Services'" :buttonText="'Add'" :placeholder="'Ex. Cloud Solution'" />
         </div>
       </div>
       <div class="">
@@ -44,6 +34,8 @@
 </template>
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
+
 import { ref } from "vue";
 const formData = ref({
   id: "",

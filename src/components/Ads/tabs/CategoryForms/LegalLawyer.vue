@@ -8,8 +8,9 @@
             :isRequired="true" :label="'Legal Firm or Lawyer Name'" :labelPosition="'top'" :isPrefixIcon="false" />
           <DynamicInput :placeholder="'Dropdown'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
             :isRequired="true" :label="'License Info'" :labelPosition="'top'" :isPrefixIcon="false" />
-          <DynamicInput :placeholder="'Select service'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
-            :isRequired="true" :label="'List Of Services'" :labelPosition="'top'" :isPrefixIcon="false" />
+          <!-- <DynamicInput :placeholder="'Select service'" :name="'Title'" :isLabel="true" v-model="formData.house_type"
+            :isRequired="true" :label="'List Of Services'" :labelPosition="'top'" :isPrefixIcon="false" /> -->
+          <ItemAdd  :label="'List Of Services'" :placeholder="'Select service'"/>
         </div>
         <div>
           <DynamicInput :placeholder="'Enter Open Hours'" :name="'Title'" :isLabel="true" :type="'textarea'"
@@ -23,6 +24,8 @@
 </template>
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
+
 import { ref } from "vue";
 const formData = ref({
   id: "",

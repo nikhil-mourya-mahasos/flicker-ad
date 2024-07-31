@@ -18,8 +18,10 @@
         </div>
         <div class="">
           <!-- furnished drompdonw -->
-          <DynamicInput :placeholder="'Select option'" v-model="formData.furnished" :isLabel="true" :label="'Furnished'"
-            :name="'furnished'" :labelPosition="'top'" :isPrefixIcon="false" />
+          <!-- <DynamicInput :placeholder="'Select option'" v-model="formData.furnished" :isLabel="true" :label="'Furnished'"
+            :name="'furnished'" :labelPosition="'top'" :isPrefixIcon="false" /> -->
+
+          <SelectOption :label="'Furnished'" />
         </div>
         <div class="">
           <DynamicInput :placeholder="'ex. 1424 sqft'" v-model="formData.property_area" :isLabel="true"
@@ -34,15 +36,15 @@
           <!-- stay_available_for -->
           <div class="flex justify-start items-center gap-10">
             <div>
-              
+
               <CustomCheckbox :is-label="true" label="Any Stay" />
             </div>
             <div>
-              
+
               <CustomCheckbox :is-label="true" label="Long Terms" />
             </div>
             <div>
-              
+
               <CustomCheckbox :is-label="true" label="Short Term" />
             </div>
           </div>
@@ -51,7 +53,7 @@
           <DynamicInput :placeholder="'Ex. 12/3/5323'" v-model="formData.available_from" :isLabel="true"
             :label="'Available From'" :name="'available_from'" :labelPosition="'top'" :isPrefixIcon="false" />
           <div class="flex items-center my-5">
-            
+
             <CustomCheckbox :is-label="true" label="Available From Today" />
           </div>
         </div>
@@ -60,11 +62,11 @@
           <!-- smoking_allowed -->
           <div class="flex justify-start items-center gap-10">
             <div class="">
-             
+
               <CustomCheckbox :is-label="true" label="Yes" />
             </div>
             <div class="">
-              
+
               <CustomCheckbox :is-label="true" label="No" />
             </div>
             <div class="">
@@ -94,17 +96,11 @@
     <div class="p-8 mx-16 text-left">
       <h3 class="text-2xl font-bold my-4">Additional Info</h3>
       <!-- accommodation_properties -->
-      <div class="grid grid-cols-6 gap-10 border rounded-lg p-5">
-        
-        <CustomCheckbox :is-label="true" label="401(K) Plan" />
-        
-        <CustomCheckbox :is-label="true" label="Insurance" />
-        
-        <CustomCheckbox :is-label="true" label="Off" />
-        
-        <CustomCheckbox :is-label="true" label="Insurance" />
-       
-        <CustomCheckbox :is-label="true" label="Insurance" />
+      <div class="grid grid-cols-2 gap-10 border rounded-lg p-5">
+        <ItemAdd class="col-span-2 md:col-span-1" :label="'Near By Places'" :value="[]" :buttonText="'Add'"
+          :placeholder="'Ex. Retirement Benifits'" />
+        <ItemAdd class="col-span-2 md:col-span-1" :label="'Property Amenities'" :value="[]" :buttonText="'Add'"
+          :placeholder="'Ex. Retirement Benifits'" />
       </div>
     </div>
   </section>
@@ -112,6 +108,8 @@
 <script setup>
 import DynamicInput from "@/components/DynamicInput.vue";
 import CustomCheckbox from "@/components/CustomCheckbox.vue";
+import SelectOption from "../../form_elements/SelectOption.vue";
+import ItemAdd from "../../form_elements/ItemAdd.vue";
 import { ref } from "vue";
 const formData = ref({
   id: "",

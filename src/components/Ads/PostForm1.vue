@@ -71,7 +71,6 @@ export default {
       }
     },
     getCategory(data) {
-      console.log("category data", data);
       this.cateogryId = data;
     },
   },

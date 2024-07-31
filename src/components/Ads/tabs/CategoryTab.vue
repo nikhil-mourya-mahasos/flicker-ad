@@ -6,18 +6,13 @@
           Post in<span class="">(Required)</span>
         </h2>
         <div class="flex justify-center gap-5 flex-wrap">
-          <div
-            class="border rounded-lg md:p-3 p-2 cursor-pointer text-sm md:text-base"
-            :id="'cat' + item.id"
-            :class="{ active: item.id == formData.category_id }"
-            v-for="(item, index) in categories"
-            :key="index"
-            @click.stop="selectCategory(item)"
-          >
-            <!-- <fp-icon :name="`ads-${item.slug}`" class="fp-fs-22 d-block mx-auto mb-2" /> -->
-            <div class="center" v-html="item.icon"></div>
-            {{ item.title }}
-            <!-- <span v-if="item.price">({{ item.price_with_currency }})</span> -->
+          <div class="border rounded-lg md:p-3 p-2 cursor-pointer text-sm md:text-base" :id="'cat' + item.id"
+            :class="{ active: item.id == formData.category_id }" v-for="(item, index) in categories" :key="index">
+            <div @click.prevent="selectCategory(item.id)">
+              <div class="center" :id="'svg' + item.id" v-html="item.icon"></div>
+              {{ item.title }}
+            </div>
+
           </div>
         </div>
       </div>
@@ -143,7 +138,7 @@ const formData = ref({
   diff_time: "just now",
   isAccepted: false,
 });
-const selected_category = ref({ id: 2 });
+const selected_category = ref(2);
 // const selected_sub_category = ref(null);
 
 const categories = ref([
@@ -292,21 +287,24 @@ const categories = ref([
 `,
   },
 ]);
-const selectCategory = (item) => {
-  if (selected_category.value && item && selected_category.value.id == item.id) {
-    // selected_category.value = null;
-    formData.value.category_id = item.id;
-    emit("handleCategory", item.id);
-  } else {
-    selected_category.value = item;
-  }
-  // document.getElementById;
+function selectCategory(id) {
+  let d  = document.getElementById('svg'+id);
+  let svg = d.getElementsByTagName('svg');
+  // d.firstChild.
+  // svg[0].style.fill = "#fff";
+  svg[0].style.stroke="#fff";
+  console.log(svg);
+  selected_category.value = id;
+  formData.value.category_id = id;
+  emit("handleCategory", id);
+
 };
 </script>
 <style lang="scss" scoped>
 .form-wizard-vue .fw-footer {
   display: block;
 }
+
 .active {
   background-color: #008080;
   color: #fff;

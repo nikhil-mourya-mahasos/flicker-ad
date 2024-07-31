@@ -12,7 +12,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                 </span>
-                <span class="ml-2 text-sm" v-if="isLabel">{{ label }}</span>
+                <span class="ml-2 text-sm whitespace-nowrap" v-if="isLabel">{{ label }}</span>
             </label>
         </div>
     </div>
