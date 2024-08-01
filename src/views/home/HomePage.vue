@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <BusinessCategory />
+    <BusinessCategory @active-category="handleActiveCategory" />
     <section class="md:grid gap-10 md:grid-cols-4 w-full my-5 flex flex-col-reverse">
       <section class="md:col-span-1 md:h-4/6 flex md:block flex-row justify-normal gap-4">
         <div class="banner-bg p-5 w-full text-white xxs:hidden xs:block">
@@ -68,6 +68,14 @@
         </div>
       </section>
       <section class="md:col-span-3 col-span-4 overflow-hidden">
+        <div class="flex justify-end">
+          <div class="cursor-pointer bg-white p-2 px-4 rounded-full border flex items-center justify-start gap-5" >
+            <div class="center hover:scale-110 duration-100 transition-all">
+              <span class="material-icons">search</span>
+            </div>
+            <h2 class="text-gray-700">Search Local Realtor</h2>
+          </div>
+        </div>
         <h3 class="text-lg text-left font-extrabold">Esports</h3>
         <div class="grid grid-cols-12 gap-2 md:gap-5 my-2 md:my-5">
           <div class="col-span-1 center" v-if="isRightSlide">
@@ -136,7 +144,7 @@
             <div
               v-for="(item, index) in list"
               :key="index"
-              :class="index == 0 ? 'active-tab' : ''"
+              :class="index == activeIndex ? 'active-tab' : ''"
               class="p-1 px-4 border border-black rounded-full cursor-pointer"
             >
               <div class="center">
@@ -247,6 +255,7 @@ export default {
         { name: "Jobs" },
         { name: "Accomedation" },
       ],
+      activeIndex:0,
       postlist: [
         {
           title: "All",
@@ -311,6 +320,9 @@ export default {
       //   behavior: "smooth", // Optional, adds smooth scrolling animation
       // });
     },
+    handleActiveCategory(data){
+      console.log(data,'active category');
+    }
   },
 };
 </script>
