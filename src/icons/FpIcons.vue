@@ -20,8 +20,8 @@ export default {
             default: 24,
         },
     },
-    data(){
-        return{
+    data() {
+        return {
             icons
         }
     },
@@ -34,6 +34,7 @@ export default {
             if (svgElement) {
                 svgElement.setAttribute('width', this.size);
                 svgElement.setAttribute('height', this.size);
+                
                 return svgElement.outerHTML;
             }
 

@@ -95,7 +95,7 @@ export default {
         { name: "Real Estate",icon: 'realEstate' },
         { name: "Legal/Lawyers",icon: 'legalLawyer' },
         { name: "Repairs",icon: 'repairs' },
-        { name: "Trining",icon: 'training' },
+        { name: "Training/Lessons",icon: 'training' },
         { name: "Pets",icon: 'pet' },
         { name: "Rent",icon: 'rentLease' },
         { name: "Lease",icon: 'rentLease' },
