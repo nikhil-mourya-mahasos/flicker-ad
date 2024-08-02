@@ -140,16 +140,18 @@
               <div v-else class="flex justify-start items-center gap-5 relative text-left">
                 <div>
                   <label for="flag" class="block font-bold text-xs text-gray-900">Select Country</label>
-                  <select id="flag" v-model="selectedCountry" class="mt-2 border rounded-lg p-1 h-9 bg-transparent border-gray-300">
+                  <select id="flag" v-model="selectedCountry"
+                    class="mt-2 border rounded-lg p-1 h-9 bg-transparent border-gray-300">
                     <option v-for="country in countries" :key="country.code" :value="country.code">
                       <span class="flex items-center text-xs">
-                        <!-- <img :srcset="country.flag" :src="country.flag" alt="" class="inline" /> -->
+                        <img src="@/assets/flags/ca.svg" alt="" class="inline" />
                         <object :data="country.flag" width="30" height="30"> </object>
 
                         {{ country.name }}
                       </span>
                     </option>
                   </select>
+
                 </div>
                 <DynamicInput class="flex-grow" :placeholder="'Ex.4477292003'" @change="verifyMailContact"
                   :name="'contactNumber'" :requiredMessage="'Contact Number'" :isLabel="true" :isRequired="true"
@@ -222,8 +224,8 @@ export default {
       isTermsAccpeted: false,
       selectedCountry: 'US',
       countries: [
-        { code: 'US', name: 'USA', flag: 'https://flagcdn.com/us.svg' },
-        { code: 'CA', name: 'Canada', flag: 'https://flagcdn.com/ca.svg' },
+        { code: 'US', name: 'USA', flag: '../../assets/flags/us.svg' },
+        { code: 'CA', name: 'Canada', flag: '@/assets/flags/ca.svg' },
       ],
 
     };

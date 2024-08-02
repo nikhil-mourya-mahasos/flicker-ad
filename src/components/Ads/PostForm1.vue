@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-default h-screen">
+  <section class="bg-default">
     <div v-if="isSubmited" class="rounded-lg md:p-2 ">
       <div class="mx-auto w-full lg:w-3/5 flex flex-col items-center">
         <div class="w-fit" >
@@ -79,7 +79,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 0,
+      currentStep: 4,
       totalStep: 5,
       cateogryId: null,
       isSubmited: false,

@@ -1,5 +1,14 @@
 <script setup>
 import { GoogleMap, Circle } from "vue3-google-map";
+import { defineProps, onMounted } from "vue";
+
+const props = defineProps({
+  zipcode:{
+    type:String
+  }
+})
+
+// const gmapKey = import.meta.env.VUE_APP_GOOGLE_MAP_KEY;
 
 const center = { lat: 37.09, lng: -95.712 };
 const cities = {
@@ -22,6 +31,10 @@ const cities = {
 };
 
 const circles = {};
+
+onMounted(()=>{
+  console.log(props.zipcode,'zipcode')
+})
 
 for (const key in cities) {
   circles[key] = {

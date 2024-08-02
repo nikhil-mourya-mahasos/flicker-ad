@@ -218,7 +218,7 @@ export default {
     return {
       navToggle: null,
       isNavOpen: false,
-      isLoggedIn: false,
+      isLoggedIn: true,
       targetEl: null,
       triggerEl: null,
       options: null,
