@@ -1,17 +1,18 @@
 <script setup>
 import { GoogleMap, Circle } from "vue3-google-map";
-import { defineProps, onMounted, reactive, ref, watch } from "vue";
+import { defineProps, onMounted, reactive, ref, watch, toRefs } from "vue";
 
 const props = defineProps({
   zipcode: {
     type: String
   }
 })
-
-watch(props.zipcode, (newVal, oldVal) => {
-  console.log(newVal + 'newVal',oldVal+'oldVal');
+// const zipcodeToBeSearch = ref("");
+let { zipcode } = toRefs(props);
+watch(zipcode.value, (newVal, oldVal) => {
+  zipcode = newVal;
+  console.log(newVal + 'newVal', oldVal + 'oldVal');
 })
-
 // const gmapKey = import.meta.env.VUE_APP_GOOGLE_MAP_KEY;
 const isDataFetched = ref(false);
 
@@ -27,8 +28,8 @@ const circles = {};
 let zipcodeResponse = reactive(null)
 
 onMounted(() => {
-  console.log(props.zipcode, 'zipcode on gmap props')
-  if (props.zipcode) {
+  console.log(zipcode.value, 'zipcode on gmap props')
+  if (zipcode.value) {
     initMap();
   }
 })
@@ -37,7 +38,7 @@ const initMap = async () => {
   await findLatLongbyZipcode()
 }
 const findLatLongbyZipcode = async () => {
-  await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=${props.zipcode}&region=USA&key=AIzaSyAoIWlHYsmd4gwmCJRM_FSEcoykXP1OOaw`)
+  await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=${zipcode.value}&region=USA&key=AIzaSyAoIWlHYsmd4gwmCJRM_FSEcoykXP1OOaw`)
     .then(res => res.json())
     .then((res) => {
       // console.log(res,zipcodeResponse);
@@ -46,7 +47,7 @@ const findLatLongbyZipcode = async () => {
       // createCircle();
       if (res.status == "OK" && res.results.length) {
         zipcodeResponse = res.results[0];
-        cities[`${props.zipcode}`] = {
+        cities[`${zipcode.value}`] = {
           center: zipcodeResponse.geometry.location,
           population: 2714856
         };
@@ -75,7 +76,7 @@ const createCircle = () => {
 </script>
 
 <template>
-  <div class="w-full h-[500px]" v-loading="true">
+  <div class="w-full h-[500px]" >
     <GoogleMap api-key="AIzaSyAoIWlHYsmd4gwmCJRM_FSEcoykXP1OOaw" style="width: 100%; height: 500px" mapTypeId="terrain"
       :center="center" :zoom="4">
       <Circle v-for="(circle, index) in circles" :key="index" :options="circle" />

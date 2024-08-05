@@ -42,7 +42,7 @@
         <h3 class="font-lg font-bold text-left my-3">Post Contact Details</h3>
         <div class="border border-1 p-3 rounded-lg">
           <div class="my-4">
-            <DynamicInput :placeholder="'Enter email'" :name="'Title'" v-model="formData.contact_email" :isLabel="true"
+            <DynamicInput :placeholder="'Enter email'" v-focus :name="'Title'" v-model="formData.contact_email" :isLabel="true"
               :isRequired="true" :label="'Email'" :labelPosition="'top'" :isPrefixIcon="false" />
           </div>
           <div class="my-4">
@@ -82,7 +82,7 @@
         </div> -->
         </div>
       </div>
-      <div class="col-span-2 p-2 border border-1 rounded-lg">
+      <div class="col-span-2 p-2 border border-1 rounded-lg" >
         <div v-if="isValidZip">
           <GoogleMap :zipcode="formData.zipcode" />
         </div>

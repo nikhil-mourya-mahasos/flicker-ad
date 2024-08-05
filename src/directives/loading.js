@@ -1,25 +1,29 @@
-// src/directives/loading.js
-export default {
-    bind(el, binding) {
+const loading = {
+    mounted(el, binding) {
+        
         // Create a loading spinner element
-        const spinner = document.createElement('div');
-        spinner.className = 'loading-spinner';
-        spinner.style.display = 'none'; // Initially hidden
+        const spinnerParent = document.createElement('div');
+        spinnerParent.className = 'relative h-full';
 
-        // Append the spinner to the target element
-        el.appendChild(spinner);
+        const spinner = document.createElement('div');
+        spinner.className = 'loading-spinner ';
+        
+        spinnerParent.appendChild(spinner);
+       
+        spinnerParent.style.display = 'none'; // Initially hidden
+
+        el.appendChild(spinnerParent);
 
         // Store the spinner element in the target element's dataset
-        el.dataset.spinner = spinner;
+        el.dataset.spinner = spinnerParent;
 
-        // Show or hide the spinner based on the binding value
         if (binding.value) {
-            spinner.style.display = 'block';
+            spinnerParent.style.display = 'block';
         } else {
-            spinner.style.display = 'none';
+            spinnerParent.style.display = 'none';
         }
     },
-    update(el, binding) {
+    updated(el, binding) {
         const spinner = el.dataset.spinner;
         if (binding.value) {
             spinner.style.display = 'block';
@@ -27,10 +31,11 @@ export default {
             spinner.style.display = 'none';
         }
     },
-    unbind(el) {
+    unMounted(el) {
         const spinner = el.dataset.spinner;
         if (spinner) {
             el.removeChild(spinner);
         }
     }
-};
+}
+export default loading
