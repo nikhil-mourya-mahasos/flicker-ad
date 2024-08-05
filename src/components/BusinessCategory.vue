@@ -35,14 +35,14 @@
           class="xxs:p-3 p-5 border border-gray-300 rounded-lg cursor-pointer transition ease-in-out delay-150 duration-100">
           <div class="">
             <div class="center">
-              <FpIcons :icon="item.icon" />
+              <FaIcons :icon="item.icon" />
             </div>
             <h4 class="whitespace-nowrap xxs:text-sm">{{ item.name }}</h4>
           </div>
         </div>
       </div>
       <div class="col-span-1 ">
-        <div class="center">
+        <div class="flex justify-end items-center h-full">
           <div @click="handleSlideRight()" class="cursor-pointer ">
             <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d_10_203)">
@@ -76,13 +76,13 @@
 
 <script>
 import * as icons from "@/icons/icons"
-import FpIcons from "@/icons/FpIcons.vue";
+import FaIcons from "@/icons/FaIcons.vue";
 
 
 export default {
   name: "BusinessCategory",
   components: {
-    FpIcons
+    FaIcons
   },
   props: {
     isCarousel: { type: Boolean, default: false },

@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import ContractorCard from '@/components/Business/RealEstate/ContractorCardView.vue';
 import ContractorListView from "@/components/Business/RealEstate/ContractorListView.vue";
-import CategoryTag from "@/components/CategoryTag.vue";
+import SubCategory from "@/components/SubCategory.vue";
 
 const businesses = [
   {
@@ -150,7 +150,7 @@ const list = ref([
 <template>
   <section class="px-3 md:px-10">
     <section class="my-5">
-      <CategoryTag :list="list" />
+      <SubCategory :list="list" />
     </section>
     <section class="flex justify-start gap-10 my-4">
       <div class="center">

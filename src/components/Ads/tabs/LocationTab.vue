@@ -147,7 +147,7 @@
         </div>
       </div>
       <div class="col-span-2 p-2 border border-1 rounded-lg">
-        <GoogleMap :zipcode="''"/>
+        <GoogleMap :zipcode="'91945'"/>
       </div>
     </div>
   </section>
@@ -159,20 +159,7 @@ import GoogleMap from "@/components/GoogleMap.vue";
 import { ref } from "vue";
 
 const formData = ref({
-  id: "",
-  user_id: null,
-  user: null,
-  category: "",
-  category_id: "",
-  sub_category: "",
-  sub_category_id: "",
-  title: "",
-  description: "",
-  contact_email: "",
-  contact_phone_number: "",
-  contact_weblink: "",
-  enable_chat: true,
-  no_reply_to_this_post: false,
+  
   location: {
     country: "",
     city: "",
@@ -190,56 +177,6 @@ const formData = ref({
   city: "",
   state: "",
 
-  service_provider: "",
-  services: [],
-  locations: [],
-  business_hours: "",
-  realtor: "",
-  license: "",
-  rent_lease_item: "",
-  rent_lease_cost: "",
-  rent_lease_term: "",
-  trainer_institute: "",
-  training_fee: "",
-  training_courses: [],
-  training_modes: [],
-  sale_by: "",
-  condition: "",
-  cost: "",
-  model: "",
-  manufacturer: "",
-  job_title: "",
-  client_recruiter: "",
-  employement_types: [],
-  compensation: "",
-  interview_mode: "",
-  remote_work_from_home: "",
-  benefits: [],
-  work_authorizations: [],
-  job_options: [],
-  house_type: "",
-  bed_rooms: "",
-  bath_rooms: "",
-  furnished: "",
-  property_area: "",
-  rent_other_utilities: "",
-  stay_available_for: [],
-  available_from: "",
-  available_from_today: false,
-  smoking_allowed: "",
-  pets_allowed: "",
-  accommodation_properties: [],
-  accommodation_amenities: [],
-  automotive_make_manufacturer: "",
-  automotive_model: "",
-  automotive_year: "",
-  automotive_color: "",
-  breed_species_type: "",
-  pet_age: "",
-  pet_color: "",
-  pet_sex: "",
-  pet_size_weight: "",
-  pet_characteristics: "",
 
   business_location: {
     country: "",
@@ -258,15 +195,6 @@ const formData = ref({
   business_city: "",
   business_state: "",
 
-  compensation_unit: "Month",
-  rent_other_utilities_unit: "Month",
-  property_area_unit: "Sq.ft",
-  rent_lease_unit: "for rent",
-  cost_unit: "Month",
-
-  images: [],
-  diff_time: "just now",
-  isAccepted: false,
 });
 </script>
 <style lang="scss" scoped></style>

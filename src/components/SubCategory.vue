@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "CategoryTag",
+  name: "SubCategory",
   props: {
     list: {
       default: [],
@@ -104,7 +104,7 @@ export default {
         :key="index"
         :class="index == activeIndex ? 'active-tab border-none' : ''"
         @click="toggleCategory(index)"
-        class="p-1 px-2 md:px-4 border border-black rounded-full cursor-pointer center"
+        class="p-1 px-2 md:px-4 border border-gray-300 rounded-full cursor-pointer center"
       >
         <div class="center">
           <h4 class="whitespace-nowrap text-xs md:text-base">{{ item?.name }}</h4>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md:p-16 p-3 bg-gray-primary">
+  <div class="md:p-16 md:pt-6 p-3 bg-gray-primary">
     <div class="xs:hidden my-2 block">
       <div class="">
         <div class="relative w-full">
@@ -43,23 +43,23 @@
         </div>
       </section>
       <section class="md:col-span-3 col-span-4 overflow-hidden">
-        <Transition name="slide-fade">
-          <div class="flex justify-end" v-if="isActiveCategory">
-            <router-link :to="ActiveCategoryRoute">
-              <div class="cursor-pointer bg-white p-2 px-4 rounded-full border flex items-center justify-start gap-5">
+
+        <div class="flex justify-between">
+          <h3 class="text-lg text-left font-extrabold">Esports</h3>
+          <Transition name="slide-fade">
+            <router-link :to="ActiveCategoryRoute" v-if="isActiveCategory">
+              <div class="cursor-pointer bg-white p-2 rounded-md border flex items-center justify-start gap-3">
                 <div class="center hover:scale-110 duration-100 transition-all">
-                  <span class="material-icons">search</span>
+                  <span class="material-icons text-sm" >search</span>
                 </div>
-                <h2 class="text-gray-700">Find <span> {{ activeCategory }}</span></h2>
+                <h2 class="text-gray-700 underline text-sm">Find <span> {{ activeCategory }}</span></h2>
               </div>
             </router-link>
+          </Transition>
+        </div>
 
-          </div>
-        </Transition>
-
-        <h3 class="text-lg text-left font-extrabold">Esports</h3>
         <div class=" my-2 md:my-5">
-          <CategoryTag :list="list"/>
+          <SubCategory :list="list" />
         </div>
         <div class="flex justify-around w-full flex-wrap gap-2 my-5">
           <div v-for="(item, index) in postlist" :key="index" class=" cursor-pointer">
@@ -77,14 +77,14 @@
 // @ is an alias to /src
 import BusinessCategory from "@/components/BusinessCategory.vue";
 import PostDetail from "@/components/PostDetail.vue";
-import CategoryTag from "@/components/CategoryTag.vue";
+import SubCategory from "@/components/SubCategory.vue";
 // import { RouterLink } from "vue-router";
 export default {
   name: "HomeView",
   components: {
     BusinessCategory,
     PostDetail,
-    CategoryTag
+    SubCategory
   },
   data() {
     return {
@@ -150,10 +150,10 @@ export default {
   },
   computed: {
     isActiveCategory: function () {
-      return this.activeCategory === 'Real Estate' || this.activeCategory === 'Legal/Lawyers'
+      return this.activeCategory === 'Realtors' || this.activeCategory === 'Legal/Lawyers'
     },
     ActiveCategoryRoute: function () {
-      if (this.activeCategory === 'Real Estate') {
+      if (this.activeCategory === 'Realtors') {
         return '/services/realEstate/explore'
       }
       if (this.activeCategory === 'Legal/Lawyers') {

@@ -1,7 +1,7 @@
 <script setup>
 // import { ref } from "vue";
 import LawyerCard from "@/components/Business/Lawyer/LawyerCard.vue";
-import CategoryTag from "@/components/CategoryTag.vue";
+import SubCategory from "@/components/SubCategory.vue";
 
 // const lawyerList = ref([{}]);
 const list = [
@@ -112,7 +112,7 @@ const lawyerCards = [
 <template>
   <section class="px-3 md:px-10">
     <section class="md:col-span-3 col-span-4 overflow-hidden">
-      <CategoryTag :list="list" />
+      <SubCategory :list="list" />
     </section>
     <section class="flex justify-start gap-2 md:gap-10 my-4">
       <div class="center">
