@@ -79,7 +79,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 4,
+      currentStep: 0,
       totalStep: 5,
       cateogryId: null,
       isSubmited: false,

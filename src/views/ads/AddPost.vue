@@ -1,6 +1,6 @@
 <template>
-  <div class="md:m-3 md:mx-16">
-    <section class="p-5">
+  <div class="md:m-3 md:mx-16 lg:mx-40">
+    <section class="p-1">
       <PostForm1 />
     </section>
   </div>

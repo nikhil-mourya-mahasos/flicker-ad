@@ -12,11 +12,11 @@ import AboutUs from "@/views/learn/AboutUs.vue";
 import ServicePage from "@/views/learn/ServicePage.vue";
 import MessageLayout from "@/views/account/MessageLayout.vue";
 import AddPost from "@/views/ads/AddPost.vue";
-import RegisterPage from "@/views/services/RegisterPage.vue"
-import ManageService from "@/views/services/ManageService.vue";
-import LawyerProfile from "@/views/services/lawyer/LawyerProfile.vue";
-import RealEstateProfile from "@/views/services/RealEstate/RealEstateProfile.vue";
-import TrainerProfile from "@/views/services/Trainer/TrainerProfile.vue";
+import RegisterPage from "@/views/businessProfiles/RegisterPage.vue"
+import ManageService from "@/views/businessProfiles/ManageService.vue";
+import LawyerProfile from "@/views/businessProfiles/lawyer/LawyerProfile.vue";
+import RealEstateProfile from "@/views/businessProfiles/RealEstate/RealEstateProfile.vue";
+import TrainerProfile from "@/views/businessProfiles/Trainer/TrainerProfile.vue";
 
 const routes = [
   {

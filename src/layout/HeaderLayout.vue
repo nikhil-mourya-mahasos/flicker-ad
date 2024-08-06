@@ -75,11 +75,13 @@
                     San Diego, CA
                   </p> -->
                   <div class="relative">
-                    <input @focus="handleInputWidthOnFocus" @focusout="handleInputWidthOnFocusOut" @input="findCity" ref="locationInput"
+                    <input @focus="handleInputWidthOnFocus" @focusout="handleInputWidthOnFocusOut" @input="findCity"
+                      ref="locationInput"
                       class="w-20 p-1 transition-all duration-150 focus:outline-[1px] outline-gray-300 outline-[1px]  lg:block xl:block  text-xs text-nowrap overflow-hidden text-primary border-none"
                       v-model="cityValue" />
-                    <ul v-if="SearchResults.length" class=" w-64 bg-white absolute top-10 border rounded-lg list-none" >
-                      <li class="text-xs text-black p-1 cursor-pointer text-left hover:pl-2 transition-all duration-100" v-for="(result, index) in SearchResults" :key="index" @click="selectResult(result.description)">
+                    <ul v-if="SearchResults.length" class=" w-64 bg-white absolute top-10 border rounded-lg list-none">
+                      <li class="text-xs text-black p-1 cursor-pointer text-left hover:pl-2 transition-all duration-100"
+                        v-for="(result, index) in SearchResults" :key="index" @click="selectResult(result.description)">
                         {{ result.description }}
                       </li>
                     </ul>
@@ -148,8 +150,8 @@
           </button>
           <router-link to="/ads/add">
             <button
-              class="xxs:hidden xs:block xswhitespace-nowrap primary-bg text-white rounded-lg p-1 xl:px-2 px-2 focus:outline-none">
-              <span class="text-[14px] sm:text-xs">+ POST AD</span>
+              class="xxs:hidden xs:block  primary-bg text-white rounded-lg p-1 xl:px-2 px-2 focus:outline-none">
+              <span class="md:text-[14px] text-xs whitespace-nowrap">+ POST AD</span>
             </button>
           </router-link>
 
@@ -168,7 +170,8 @@
             <div class="center gap-4">
               <img class="w-8 h-8 rounded-full"
                 src="https://img.freepik.com/free-photo/html-css-collage-concept_23-2150061955.jpg" alt="user photo" />
-              <span class="">Account</span>
+              <span class="font-sm font-semibold">John Doe</span>
+              <span><fa-icons :icon="'arrowDropdown'" :size="'12px'" /></span>
             </div>
 
             <!-- <span class="sr-only">Open user menu</span> -->
@@ -178,23 +181,31 @@
           <div id="dropdownMenu"
             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
-              <li>
+              <li class="">
+
                 <router-link to="/account/notification"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Account</router-link>
+                  class="inline-flex gap-5 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <span class="center"><fa-icons :icon="'user'" :size="'14px'" /></span>
+                  <span>Account</span></router-link>
               </li>
               <li>
                 <a href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                  class="inline-flex gap-5 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <span class="center"><fa-icons :icon="'setting'" :size="'14px'" /></span>
+                  <span>Settings</span></a>
               </li>
               <li>
                 <a href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Learnings</a>
+                  class="inline-flex gap-5 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <span class="center"><fa-icons :icon="'book'" :size="'14px'" /></span>
+                  <span>Learnings</span></a>
               </li>
             </ul>
-            <div class="py-2">
+            <div class="py-2 bg-gray-100">
               <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Log
-                out</a>
+                class="inline-flex gap-5 px-4 py-2 text-sm bg-gray-100 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                <span class="center"><fa-icons :icon="'logout'" :size="'14px'" /></span>
+                <span>Logout</span></a>
             </div>
           </div>
         </div>
@@ -211,6 +222,7 @@ import store from "@/store/index.js";
 // import axios from "axios";
 // import { mapActions, mapGetters } from "vuex";
 import { Dropdown } from "flowbite";
+import FaIcons from "@/icons/FaIcons.vue";
 
 export default {
   name: "HeaderLayout",
@@ -227,6 +239,9 @@ export default {
       cityValue: "San Diego",
       SearchResults: []
     };
+  },
+  components: {
+    FaIcons
   },
   watch: {
     $route(to, from) {
@@ -323,7 +338,7 @@ export default {
     },
     selectResult(data) {
       this.cityValue = data;
-      this.SearchResults=[]
+      this.SearchResults = []
     }
   },
 };
